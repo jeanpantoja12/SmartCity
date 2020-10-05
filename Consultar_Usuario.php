@@ -4,7 +4,7 @@ $database_localhost ="jeanpantoja1_smartcitybd";
 $username_localhost ="215238_root";
 $password_localhost ="smartcity123";
 
-$json=array();
+$json=matriz();
 
     if(isset($_GET["ID_Usuario"])){
 
