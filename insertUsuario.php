@@ -6,7 +6,7 @@ $password_localhost = "smartcity123";
 
 $json=array();
 
-	if(isset($_GET["ID_Usuario"]) && isset($_GET["US_Nombres"]) && isset($_GET["US_Apellidos"] && isset($_GET["US_Email"]&& isset($_GET["US_Contraseña"]&& isset($_GET["US_Tipo"])){
+	if(isset($_GET["ID_Usuario"]) && isset($_GET["US_Nombres"]) && isset($_GET["US_Apellidos"] && isset($_GET["US_Email"] && isset($_GET["US_Contraseña"] && isset($_GET["US_Tipo"])){
 		$id = $_GET['ID_Usuario'];
 		$nombre = $_GET['US_Nombres'];
 		$apellidos = $_GET['US_Apellidos'];
