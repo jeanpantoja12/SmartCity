@@ -12,7 +12,7 @@ $json=array();
 
             $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-            $consulta="select ID_Usuario, Nombres, Apellidos,Direcccion,Fecha_Nacimiento,Nacionalidad,Telefono,Email,Contraseña,Tipo from Tbl_Usuario where ID_Usuario= '{$id_user}'";
+            $consulta="select ID_Usuario, US_Nombres, US_Apellidos,US_Direcccion,US_Fecha_Nacimiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo from Tbl_Usuario where ID_Usuario= '{$id_user}'";
 
             $resultado=mysqli_query($conexion,$consulta);
 
