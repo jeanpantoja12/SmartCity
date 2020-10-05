@@ -36,7 +36,6 @@ $json=array();
 
 
             }
-
             mysqli_close($conexion);
             echo json_encode($json);
     }
