@@ -8,11 +8,11 @@ $json=array();
 
     if(isset($_GET["ID_Usuario"])){
 
-            $ID_Usuario=$_GET['ID_Usuario'];
+            $id_user=$_GET['ID_Usuario'];
 
             $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-            $consulta="select ID_Usuario, Nombres, Apellidos,Direcccion,Fecha_Nacimiento,Nacionalidad,Telefono,Email,Contraseña,Tipo from Tbl_Usuario where ID_Usuario= '{$ID_Usuario}'";
+            $consulta="select ID_Usuario, Nombres, Apellidos,Direcccion,Fecha_Nacimiento,Nacionalidad,Telefono,Email,Contraseña,Tipo from Tbl_Usuario where ID_Usuario= '{$id_user}'";
 
             $resultado=mysqli_query($conexion,$consulta);
 
