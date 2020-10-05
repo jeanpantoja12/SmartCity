@@ -11,14 +11,14 @@ $json=array();
 		$nombre = $_GET['US_Nombres'];
 		$apellidos = $_GET['US_Apellidos'];
 		$direccion = $_GET['US_Direccion'];
-		$fecha_nac = $_GET['US_Fecha_Nacmiento'];
+		$fecha_nac = $_GET['US_Fecha_Nacimiento'];
 		$nacionalidad = $_GET['US_Nacionalidad'];
 		$telefono = $_GET['US_Telefono'];
 		$email = $_GET['US_Email'];
 		$password = $_GET['US_Contraseña'];
 		$tipo = $_GET['US_Tipo'];
 		$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
-		$insert="INSERT INTO Tbl_Usuario(ID_Usuario, US_Nombres, US_Apellidos,US_Direccion,US_Fecha_Nacmiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo) VALUES ('{$id}','{$nombre}','{$apellidos}','{$direccion}','{$fecha_nac}','{$nacionalidad}','{$telefono}','{$email}','{$password}','{$tipo}')";
+		$insert="INSERT INTO Tbl_Usuario(ID_Usuario, US_Nombres, US_Apellidos,US_Direccion,US_Fecha_Nacimiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo) VALUES ('{$id}','{$nombre}','{$apellidos}','{$direccion}','{$fecha_nac}','{$nacionalidad}','{$telefono}','{$email}','{$password}','{$tipo}')";
 		$resultado_insert=mysqli_query($conexion,$insert);
 
 		if($resultado_insert){
@@ -36,7 +36,7 @@ $json=array();
 			$resultar['US_Nombres']="No User";
 			$resultar['US_Apellidos']="No User";
 			$resultar['US_Direccion']="No User";
-			$resultar['US_Fecha_Nacmiento']="No User";
+			$resultar['US_Fecha_Nacimiento']="No User";
 			$resultar['US_Nacionalidad']="No User";
 			$resultar['US_Telefono']="No User";
 			$resultar['US_Email']="No User";
