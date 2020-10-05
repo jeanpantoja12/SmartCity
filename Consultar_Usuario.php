@@ -6,14 +6,14 @@ $password_localhost ="smartcity123";
 
 $json=array();
 
-    if(isset($_GET["ID_Usuario"])){
+    if(isset($_GET["US_Nombres"])){
 
-            $ID_Usuario=$_GET['ID_Usuario'];
+            $US_Nombres=$_GET['US_Nombres'];
 
 
             $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-            $consulta="select ID_Usuario, US_Nombres, US_A funciones,US_Direcccion,US_Fecha_Nacimiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo from Tbl_Usuario where ID_Usuario= '{$ID_Usuario}'";
+            $consulta="select ID_Usuario, US_Nombres, US_A funciones,US_Direcccion,US_Fecha_Nacimiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo from Tbl_Usuario where US_Nombres= '{$US_Nombres}'";
 
             $resultado=mysqli_query($conexion,$consulta);
 
