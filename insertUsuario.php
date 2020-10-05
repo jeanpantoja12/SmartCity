@@ -32,7 +32,7 @@ $json=array();
 			echo json_encode($json);			
 		}
 		else{
-			$resultar["ID_Usuario"]="No User";
+			$resultar["ID_Usuario"]="No Registrado";
 			$resultar['US_Nombres']="No User";
 			$resultar['US_Apellidos']="No User";
 			$resultar['US_Direccion']="No User";
