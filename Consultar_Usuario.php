@@ -1,8 +1,8 @@
 <?PHP
 $hostname_localhost ="mysql-jeanpantoja1.alwaysdata.net";
 $database_localhost ="jeanpantoja1_smartcitybd";
-$username_localhost = "215238_root";
-$password_localhost = "smartcity123";
+$username_localhost ="215238_root";
+$password_localhost ="smartcity123";
 
 $json=array();
 
@@ -34,19 +34,6 @@ $json=array();
                 $resultar["US_Tipo"]='No registra';
                 $json['usuario'][]=$resultar;
 
-
-
-                $ resultar [ "ID_Usuario" ] = "Sin usuario" ;
-            $ resultar [ 'US_Nombres' ] = "Sin usuario" ;
-            $ resultar [ 'US_A funciones' ] = "Sin usuario" ;
-            $ resultar [ 'US_Direccion' ] = "Sin usuario" ;
-            $ resultar [ 'US_Fecha_Nacimiento' ] = "Sin usuario" ;
-            $ resultar [ 'US_Nacionalidad' ] = "Sin usuario" ;
-            $ resultar [ 'US_Telefono' ] = "Sin usuario" ;
-            $ resultar [ 'US_Email' ] = "Sin usuario" ;
-            $ resultar [ 'US_Contraseña' ] = "Sin usuario" ;
-            $ resultar [ 'US_Tipo' ] = "Sin usuario" ;
-            $ json [ 'usuario' ] [] = $ resultar ;
 
             }
 
