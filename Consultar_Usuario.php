@@ -1,18 +1,18 @@
 <?PHP
-$hostname_localhost="mysql.jeanpantoja1.alwaysdata.net";
-$database_localhost="jeanpantoja1_smartcitybd";
-$username_localhost="215238_root";
-$password_localhost="smartcity123";
+$hostname_localhost ="mysql-jeanpantoja1.alwaysdata.net";
+$database_localhost ="jeanpantoja1_smartcitybd";
+$username_localhost = "215238_root";
+$password_localhost = "smartcity123";
 
 $json=array();
 
     if(isset($_GET["ID_Usuario"])){
 
-            $id=$_GET['ID_Usuario'];
+            $ID_Usuario=$_GET['ID_Usuario'];
 
             $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-            $consulta="select ID_Usuario, US_Nombres, US_Apellidos,US_Direcccion,US_Fecha_Nacimiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo from Tbl_Usuario where ID_Usuario= '{$id}'";
+            $consulta="select ID_Usuario, US_Nombres, US_Apellidos,US_Direcccion,US_Fecha_Nacimiento,US_Nacionalidad,US_Telefono,US_Email,US_Contraseña,US_Tipo from Tbl_Usuario where ID_Usuario= '{$ID_Usuario}'";
 
             $resultado=mysqli_query($conexion,$consulta);
 
