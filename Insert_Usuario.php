@@ -22,7 +22,7 @@ $json=array();
 		$resultado_insert=mysqli_query($conexion,$insert);
 
 		if($resultado_insert){
-			$consulta ="SELECT * FROM usuario WHERE documento = '{$documento}'";
+			$consulta ="SELECT * FROM Tbl_Usuario WHERE ID_Usuario = '{$id}'";
 			$resultado = mysqli_query($conexion,$consulta);
 
 			if($registro=mysqli_fetch_array($resultado)){
