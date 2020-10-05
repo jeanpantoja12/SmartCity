@@ -32,17 +32,31 @@ $json=array();
 			echo json_encode($json);			
 		}
 		else{
-			$resultar["documento"]=0;
-			$resultar["nombre"]='No registra';
-			$resultar["profesion"]='No registra';
+			$resultar["ID_Usuario"]="No User";
+			$resultar['US_Nombres']="No User";
+			$resultar['US_Apellidos']="No User";
+			$resultar['US_Direccion']="No User";
+			$resultar['US_Fecha_Nacmiento']="No User";
+			$resultar['US_Nacionalidad']="No User";
+			$resultar['US_Telefono']="No User";
+			$resultar['US_Email']="No User";
+			$resultar['US_Contraseña']="No User";
+			$resultar['US_Tipo']="No User";
 			$json['usuario'][]=$resultar;
 			echo json_encode($json);
 		}
 	}
 	else{
-			$resultar["documento"]=0;
-			$resultar["nombre"]='WS no retorna';
-			$resultar["profesion"]='WS no retorna';
+			$resultar["ID_Usuario"]="No User";
+			$resultar['US_Nombres']="No User";
+			$resultar['US_Apellidos']="No User";
+			$resultar['US_Direccion']="No User";
+			$resultar['US_Fecha_Nacmiento']="No User";
+			$resultar['US_Nacionalidad']="No User";
+			$resultar['US_Telefono']="No User";
+			$resultar['US_Email']="No User";
+			$resultar['US_Contraseña']="No User";
+			$resultar['US_Tipo']="No User";
 			$json['usuario'][]=$resultar;
 			echo json_encode($json);
 	}
