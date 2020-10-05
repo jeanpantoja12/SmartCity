@@ -17,7 +17,7 @@ $json=array();
             $resultado=mysqli_query($conexion,$consulta);
 
             if($registro=mysqli_fetch_array($resultado)){
-                $json['Tbl_Usuario'][]=$registro;
+                $json['Tbl_Usuario']=$registro;
             }
 
             else{
@@ -31,7 +31,7 @@ $json=array();
                  $resultar["Email"]='No registra';
                 $resultar["Contraseña"]='No registra';
                 $resultar["Tipo"]='No registra';
-                $json['Tbl_Usuario'][]=$resultar;
+                $json['Tbl_Usuario']=$resultar;
             }
 
             mysqli_close($conexion);
@@ -41,7 +41,7 @@ $json=array();
     else{
         $resultar["success"]=0;
         $resultar["message"]='WS no retorna';
-        $json['Tbl_Usuario'][]=$resultar;
+        $json['Tbl_Usuario']=$resultar;
         echo json_encode($json);
     }
 
