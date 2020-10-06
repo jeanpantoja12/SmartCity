@@ -6,9 +6,9 @@ $password_localhost ="smartcity123";
 
 $json=array();
 
-    if(isset($_GET["ID"])){
+    if(isset($_GET["ID_Usuario"])){
 
-            $ID_Usuario=$_GET['ID'];
+            $ID=$_GET['ID_Usuario'];
 
 
             $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
