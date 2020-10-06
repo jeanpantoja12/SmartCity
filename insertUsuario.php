@@ -6,7 +6,7 @@ $password_localhost = "smartcity123";
 
 $json=array();
 
-	if(isset($_GET["ID_Usuario"]) && isset($_GET["US_Nombres"]) && isset($_GET["US_Apellidos"]) && isset($_GET["US_Email"]) && isset($_GET["US_Contraseña"]) && isset($_GET["US_Tipo"])){
+	if(isset($_GET["ID_Usuario"]) && isset($_GET["US_Nombres"]) && isset($_GET["US_Apellidos"]) && isset($_GET["US_Email"]) && isset($_GET["US_Contrasena"]) && isset($_GET["US_Tipo"])){
 		$id = $_GET['ID_Usuario'];
 		$nombre = $_GET['US_Nombres'];
 		$apellidos = $_GET['US_Apellidos'];
@@ -15,7 +15,7 @@ $json=array();
 		$nacionalidad = $_GET['US_Nacionalidad'];
 		$telefono = $_GET['US_Telefono'];
 		$email = $_GET['US_Email'];
-		$password = $_GET['US_Contraseña'];
+		$password = $_GET['US_Contrasena'];
 		$tipo = $_GET['US_Tipo'];
 		$conexion = mysql_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost) or die ("Unable to connect to host");
 		$insert="INSERT INTO `Tbl_Usuario`(`ID_Usuario`, `US_Nombres`, `US_Apellidos`, `US_Direcccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`, `US_Contrasena`, `US_Tipo`) VALUES ('{$id}','{$nombre}','{$apellidos}','{$direccion}','{$fecha_nac}','{$nacionalidad}','{$telefono}','{$email}','{$password}','{$tipo}')";
@@ -40,7 +40,7 @@ $json=array();
 			$resultar['US_Nacionalidad']="No User";
 			$resultar['US_Telefono']="No User";
 			$resultar['US_Email']="No User";
-			$resultar['US_Contraseña']="No User";
+			$resultar['US_Contrasena']="No User";
 			$resultar['US_Tipo']="No User";
 			$json['usuario'][]=$resultar;
 			echo json_encode($json);
@@ -55,7 +55,7 @@ $json=array();
 			$resultar['US_Nacionalidad']="No User";
 			$resultar['US_Telefono']="No User";
 			$resultar['US_Email']="No User";
-			$resultar['US_Contraseña']="No User";
+			$resultar['US_Contrasena']="No User";
 			$resultar['US_Tipo']="No User";
 			$json['usuario'][]=$resultar;
 			echo json_encode($json);
