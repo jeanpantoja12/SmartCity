@@ -17,7 +17,7 @@ $json=array();
 		$email = $_GET['US_Email'];
 		$password = $_GET['US_Contrasena'];
 		$tipo = $_GET['US_Tipo'];
-		$conexion = mysql_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost) or die ("Unable to connect to host");
+		$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost) or die ("Unable to connect to host");
 		$insert="INSERT INTO `Tbl_Usuario`(`ID_Usuario`, `US_Nombres`, `US_Apellidos`, `US_Direcccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`, `US_Contrasena`, `US_Tipo`) VALUES ('{$id}','{$nombre}','{$apellidos}','{$direccion}','{$fecha_nac}','{$nacionalidad}','{$telefono}','{$email}','{$password}','{$tipo}')";
 		$resultado_insert=mysqli_query($conexion,$insert);
 
