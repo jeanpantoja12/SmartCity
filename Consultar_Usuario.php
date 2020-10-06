@@ -25,16 +25,16 @@ $json=array();
             }
 
             else{
-                $resultar["ID_Usuario"]=0;
-                $resultar["US_Nombres"]='No registra';
-                $resultar["US_A funciones"]='No registra';
-                 $resultar["US_Direcccion"]='No registra';
-                $resultar["US_Fecha_Nacimiento"]='No registra';
-                 $resultar["US_Nacionalidad"]='No registra';
-                $resultar["US_Telefono"]='No registra';
-                 $resultar["US_Email"]='No registra';
-                $resultar["US_Contraseña"]='No registra';
-                $resultar["US_Tipo"]='No registra';
+            $resultar["ID_Usuario"]="No Registrado";
+            $resultar['US_Nombres']="No User";
+            $resultar['US_Apellidos']="No User";
+            $resultar['US_Direccion']="No User";
+            $resultar['US_Fecha_Nacimiento']="No User";
+            $resultar['US_Nacionalidad']="No User";
+            $resultar['US_Telefono']="No User";
+            $resultar['US_Email']="No User";
+            $resultar['US_Contrasena']="No User";
+            $resultar['US_Tipo']="No User";
                 $json['usuario'][]=$resultar;
 
 
