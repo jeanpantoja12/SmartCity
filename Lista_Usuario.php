@@ -13,7 +13,7 @@ $json=array();
 
         $resultado=mysqli_query($conexion,$consulta);
 
-        while($registro=mysqli_fetch_array($resultado)){
+        while($registro=mysqli_fetch_assoc($resultado)){
             $json['Tbl_Usuario'][]=$registro;
         }
 
