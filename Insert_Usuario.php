@@ -6,8 +6,7 @@ $password_localhost = "smartcity123";
 
 $json=array();
 
-	if(isset($_GET["ID_Usuario"]) && isset($_GET["US_Nombres"]) && isset($_GET["US_Apellidos"]) && isset($_GET["US_Email"]) && isset($_GET["US_Contrasena"]) && isset($_GET["US_Tipo"])){
-		$id = $_GET['ID_Usuario'];
+	if(isset($_GET["US_Nombres"]) && isset($_GET["US_Apellidos"]) && isset($_GET["US_Email"]) && isset($_GET["US_Contrasena"]) && isset($_GET["US_Tipo"])){
 		$nombre = $_GET['US_Nombres'];
 		$apellidos = $_GET['US_Apellidos'];
 		$direccion = $_GET['US_Direccion'];
@@ -18,7 +17,7 @@ $json=array();
 		$password = $_GET['US_Contrasena'];
 		$tipo = $_GET['US_Tipo'];
 		$conexion = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost) or die ("Unable to connect to host");
-		$insert="INSERT INTO `Tbl_Usuario`(`ID_Usuario`, `US_Nombres`, `US_Apellidos`, `US_Direcccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`, `US_Contrasena`, `US_Tipo`) VALUES ('{$id}','{$nombre}','{$apellidos}','{$direccion}','{$fecha_nac}','{$nacionalidad}','{$telefono}','{$email}','{$password}','{$tipo}')";
+		$insert="INSERT INTO `Tbl_Usuario`(`US_Nombres`, `US_Apellidos`, `US_Direcccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`, `US_Contrasena`, `US_Tipo`) VALUES ('{$nombre}','{$apellidos}','{$direccion}','{$fecha_nac}','{$nacionalidad}','{$telefono}','{$email}','{$password}','{$tipo}')";
 		$resultado_insert=mysqli_query($conexion,$insert);
 
 		if($resultado_insert){
