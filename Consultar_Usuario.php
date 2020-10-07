@@ -18,7 +18,7 @@ $json=array();
 
             $resultado=mysqli_query($conexion,$consulta);
 
-            if($registro=mysqli_fetch_array($resultado)){
+            if($registro=mysqli_fetch_assoc($resultado)){
                 $json['usuario'][]=$registro;
             }
 
