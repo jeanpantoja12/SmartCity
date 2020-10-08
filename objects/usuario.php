@@ -59,5 +59,19 @@ class Usuario{
     return false;
       
 }
+function login(){
+        // select all query with user inputed username and password
+        $query = "SELECT
+                    `ID_Usuario`, `US_Email`, `US_Contrasena`
+                FROM
+                    " . $this->table_name . " 
+                WHERE
+                    US_Email='".$this->US_Email."' AND US_Contrasena='".$this->US_Contrasena."'";
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        // execute query
+        $stmt->execute();
+        return $stmt;
+    }
 }
 ?>
