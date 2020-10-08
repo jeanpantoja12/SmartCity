@@ -1,5 +1,4 @@
 <?php
-// required headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: GET");
@@ -10,19 +9,22 @@ header('Content-Type: application/json');
 // include database and object files
 include_once '../config/database.php';
 include_once '../objects/usuario.php';
- 
-
-// get database connection
-$database = new Database();
+ $database = new Database();
 $db = $database->getConnection();
  
 // prepare user object
 $user = new Usuario($db);
 
-// set ID property of user to be edited
-if(isset($_GET['US_Email']) && isset($_GET['US_Contrasena'])){
-    $user->US_Email = isset($_GET['US_Email']) ? $_GET['US_Email'] : die();
-    $user->US_Contrasena = isset($_GET['US_Contrasena']) ? $_GET['US_Contrasena'] : die();
+$data = file_get_contents('php://input');
+$json = json_decode($data);
+
+$email = $json->{'US_Email'};
+$password = $json->{'US_Contrasena'};
+
+if(!empty($email) and !empty($password))
+{
+    $user->US_Email = $email;
+    $user->US_Contrasena = $password;
     $stmt = $user->login();
     if($stmt->rowCount() > 0){
         // get retrieved row
@@ -45,7 +47,8 @@ if(isset($_GET['US_Email']) && isset($_GET['US_Contrasena'])){
         
     }
 }
-else{
+else
+{
     $user_arr=array(
             "status" => false,
             "message" => "Datos Incompletos",
@@ -53,6 +56,4 @@ else{
     http_response_code(500);
 }
 echo json_encode($user_arr);
-// read the details of user to be edited
-
 ?>
