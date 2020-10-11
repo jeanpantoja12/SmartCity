@@ -36,7 +36,7 @@ class Vehiculo{
     $this->VEH_Color=htmlspecialchars(strip_tags($this->VEH_Color));
     $this->VEH_Modelo=htmlspecialchars(strip_tags($this->VEH_Modelo));
     $this->VEH_Marca=htmlspecialchars(strip_tags($this->VEH_Marca));
-    $this->VEH_Tipo=htmlspecialchars(strip_tags($this->ID_Tipo_Vehiculo));
+    $this->ID_Tipo_Vehiculo=htmlspecialchars(strip_tags($this->ID_Tipo_Vehiculo));
     $this->ID_Vehiculo=htmlspecialchars(strip_tags($this->ID_Conductor));
     // bind values
 
