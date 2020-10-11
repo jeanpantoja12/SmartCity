@@ -22,24 +22,24 @@ $data = json_decode(file_get_contents("php://input"));
   
 // make sure data is not empty
 if( 
-    !empty($data->VEH_Conductor) &&
+  
     !empty($data->VEH_Placa) &&
     !empty($data->VEH_Color) &&
     !empty($data->VEH_Modelo) &&
     !empty($data->VEH_Marca) &&
-    !empty($data->VEH_Tipo) &&
-    !empty($data->ID_Vehiculo) &&
+    !empty($data->ID_Tipo_Vehiculo) &&
+    !empty($data->ID_Conductor) &&
  
 ){
   
     // set product property values
-    $user->VEH_Conductor = $data->VEH_Conductor;
+
     $user->VEH_Placa = $data->VEH_Placa;
     $user->VEH_Color = $data->VEH_Color;
     $user->VEH_Modelo = $data->VEH_Modelo;
     $user->VEH_Marca = $data->VEH_Marca;
-    $user->VEH_Tipo = $data->VEH_Tipo;
-    $user->ID_Vehiculo = $data->ID_Vehiculo;
+    $user->VEH_Tipo = $data->ID_Tipo_Vehiculo;
+    $user->ID_Conductor = $data->ID_Conductor;
 
     // create the product
     if($user->create()){
