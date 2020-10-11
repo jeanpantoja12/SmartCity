@@ -38,7 +38,7 @@ if(
     $user->VEH_Color = $data->VEH_Color;
     $user->VEH_Modelo = $data->VEH_Modelo;
     $user->VEH_Marca = $data->VEH_Marca;
-    $user->VEH_Tipo = $data->ID_Tipo_Vehiculo;
+    $user->ID_Tipo_Vehiculo = $data->ID_Tipo_Vehiculo;
     $user->ID_Conductor = $data->ID_Conductor;
 
     // create the product
