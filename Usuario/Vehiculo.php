@@ -4,7 +4,7 @@ class Vehiculo{
     // database connection and table name
     private $conn;
     private $table_name = "Tbl_Vehiculo";
-     private $table_name = "Tbl_Conductor";
+   //private $table_name = "Tbl_Conductor";
   
     // object properties
     public $ID_Vehiculo;
