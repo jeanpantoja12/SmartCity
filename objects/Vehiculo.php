@@ -17,7 +17,7 @@ class Vehiculo{
     public $ID_Conductor;
     public $Nombre_Conductor;
     public $Tipo_Vehiculo;
-  ;
+  
 
     // constructor with $db as database connection
     public function __construct($db){
