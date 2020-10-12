@@ -34,7 +34,7 @@ if(
     !empty($data->CON_Longitud) 
     !empty($data->CON_Status) &&
     !empty($data->CON_FCM) &&
-    !empty($data->CON_Fotografia_Licencia) 
+    !empty($data->CON_Fotografia_Licencia)&&
  
  
 ){
