@@ -10,12 +10,12 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../config/database.php';
   
 // instantiate product object
-include_once '../objects/Vehiculo.php';
+include_once '../objects/usuario.php';
   
 $database = new Database();
 $db = $database->getConnection();
   
-$user = new Usuario($db);
+$vehiculo = new Vehiculo($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
