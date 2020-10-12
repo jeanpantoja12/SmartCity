@@ -46,6 +46,10 @@ class Incidente{
     // execute query
     if($stmt->execute()){
         return true;
+    }else{
+
+        print_r($stmt->errorInfo());
+
     }
   
     return false;
