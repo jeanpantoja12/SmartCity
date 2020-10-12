@@ -33,15 +33,15 @@ if(
   
     // set product property values
 
-    $indicente->ID_Vehiculo = $data->ID_Vehiculo;
-    $indicente->ID_Usuario = $data->ID_Usuario;
-    $indicente->ind_Descripcion = $data->ind_Descripcion;
-    $indicente->ind_Fotografia = $data->ind_Fotografia;
-    $indicente->ind_Fecha_Incidente = $data->ind_Fecha_Incidente;
+    $incidente->ID_Vehiculo = $data->ID_Vehiculo;
+    $incidente->ID_Usuario = $data->ID_Usuario;
+    $incidente->ind_Descripcion = $data->ind_Descripcion;
+    $incidente->ind_Fotografia = $data->ind_Fotografia;
+    $incidente->ind_Fecha_Incidente = $data->ind_Fecha_Incidente;
 
 
     // create the product
-    if($indicente->create()){
+    if($incidente->create()){
   
         // set response code - 201 created
         http_response_code(201);
