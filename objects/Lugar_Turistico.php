@@ -107,15 +107,7 @@ class Lugarturistico{
         return true;
     }
   
-    return false;
-}
   
-    return false;
-}
-
-  
-    return false;
-}
   function update(){
     // query to insert record
     $query = "UPDATE
