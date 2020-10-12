@@ -54,6 +54,46 @@ class Vehiculo{
   
     return false;
       
-}
+  }
+  function Consulta(){
+        // query to read single record
+    $query = "SELECT
+                v.ID_Vehiculo, v.VEH_Placa, v.VEH_Color, v.VEH_Modelo, v.VEH_Marca, v.ID_Tipo_Vehiculo, t.TV_Nombre as Tipo_Vehiculo,v.ID_Conductor,CONCAT(c.CON_Nombre,' ',c.CON_Apellidos) as Nombre_Conductor
+            FROM
+                " . $this->table_name . " v
+                LEFT JOIN
+                    Tbl_Tipo_Vehiculo t
+                        ON v.ID_Tipo_Vehiculo = t.ID_Tipo_Vehiculo
+                LEFT JOIN
+                    Tbl_Conductor c
+                        ON v.ID_Conductor = c.ID_Conductor
+            WHERE
+                v.VEH_Placa = ?
+            LIMIT
+                0,1";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->VEH_Placa);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Vehiculo = $row['ID_Vehiculo'];
+    $this->VEH_Placa = $row['VEH_Placa'];
+    $this->VEH_Color = $row['VEH_Color'];
+    $this->VEH_Modelo = $row['VEH_Modelo'];
+    $this->VEH_Marca = $row['VEH_Marca'];
+    $this->ID_Tipo_Vehiculo = $row['ID_Tipo_Vehiculo'];
+    $this->Tipo_Vehiculo = $row['Tipo_Vehiculo'];
+    $this->ID_Conductor = $row['ID_Conductor'];
+    $this->Nombre_Conductor = $row['Nombre_Conductor'];
+    }
+  
 }
 ?>
