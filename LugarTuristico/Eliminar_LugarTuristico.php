@@ -21,7 +21,7 @@ $lugarTuri = new Lugarturistico($db);
 $data = json_decode(file_get_contents("php://input"));
   
 
-$lugarTuri->D_Lugar_Turistico = $data->D_Lugar_Turistico;
+$lugarTuri->ID_Lugar_Turistico = $data->ID_Lugar_Turistico;
   
 
 if($lugarTuri->delete()){
