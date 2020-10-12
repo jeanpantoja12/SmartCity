@@ -95,7 +95,7 @@ class Lugarturistico{
  function delete(){
   
 
-    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Lugar_Turistico = ?";
+    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Lugar_Turistico = ID_Lugar_Turistico";
   
     $stmt = $this->conn->prepare($query);
   
