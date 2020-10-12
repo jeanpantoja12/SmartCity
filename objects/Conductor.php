@@ -12,7 +12,7 @@ class Conductor{
     public $CON_Telefono;
     public $CON_Direccion;
     public $CON_Licencia;
-    public $CON_Fotografia_Perfil
+    public $CON_Fotografia_Perfil;
     public $ID_Empresa_Transp;
     public $CON_Latitud;
     public $CON_Longitud;
