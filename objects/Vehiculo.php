@@ -39,7 +39,7 @@ class Vehiculo{
     $this->VEH_Modelo=htmlspecialchars(strip_tags($this->VEH_Modelo));
     $this->VEH_Marca=htmlspecialchars(strip_tags($this->VEH_Marca));
     $this->ID_Tipo_Vehiculo=htmlspecialchars(strip_tags($this->ID_Tipo_Vehiculo));
-    $this->ID_Vehiculo=htmlspecialchars(strip_tags($this->ID_Conductor));
+    $this->ID_Conductor=htmlspecialchars(strip_tags($this->ID_Conductor));
     // bind values
 
     $stmt->bindParam(":VEH_Placa", $this->VEH_Placa);
@@ -47,7 +47,7 @@ class Vehiculo{
     $stmt->bindParam(":VEH_Modelo", $this->VEH_Modelo);
     $stmt->bindParam(":VEH_Marca", $this->VEH_Marca);
     $stmt->bindParam(":ID_Tipo_Vehiculo", $this->ID_Tipo_Vehiculo);
-    $stmt->bindParam(":ID_Vehiculo", $this->ID_Conductor);
+    $stmt->bindParam(":ID_Conductor", $this->ID_Conductor);
 
     // execute query
     if($stmt->execute()){
