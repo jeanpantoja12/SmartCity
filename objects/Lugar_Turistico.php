@@ -92,20 +92,24 @@ class Lugarturistico{
     }
   
   
-  function delete(){
+ function delete(){
   
 
-    $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Lugar_Turistico = ?";
   
     $stmt = $this->conn->prepare($query);
   
-    $this->id=htmlspecialchars(strip_tags($this->id));
+    $this->ID_Lugar_Turistico=htmlspecialchars(strip_tags($this->ID_Lugar_Turistico));
   
-    $stmt->bindParam(1, $this->id);
+    $stmt->bindParam(1, $this->ID_Lugar_Turistico);
   
     if($stmt->execute()){
         return true;
     }
+  
+    return false;
+}
+
   
     return false;
 }
