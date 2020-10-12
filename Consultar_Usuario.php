@@ -23,7 +23,7 @@ $json=array();
             }
 
             else{
-                print_r(mysqli_error());
+                echo("Error description: " . mysqli_error($conexion));
             $resultar["ID_Usuario"]="No Registrado";
             $resultar['US_Nombres']="No User";
             $resultar['US_Apellidos']="No User";
