@@ -54,8 +54,9 @@ class Usuario{
     // execute query
     if($stmt->execute()){
         return true;
+        
     }
-  
+    
     return false;
       
 }
@@ -73,5 +74,32 @@ function login(){
         $stmt->execute();
         return $stmt;
     }
+function cambiar_password(){
+        // select all query with user inputed username and password
+        // update query
+    $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                US_Contrasena = :US_Contrasena
+            WHERE
+                ID_Usuario = :ID_Usuario";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+        // sanitize
+    $this->US_Contrasena=htmlspecialchars(strip_tags($this->US_Contrasena));
+    $this->ID_Usuario=htmlspecialchars(strip_tags($this->ID_Usuario));
+       // bind new values
+    $stmt->bindParam(':US_Contrasena', $this->US_Contrasena);
+    $stmt->bindParam(':ID_Usuario', $this->ID_Usuario);
+    // execute the query
+    if($stmt->execute()){
+        return true;
+    }
+  else {
+        print_r($stmt->errorInfo());
+    }
+    return false;
+}
 }
 ?>
