@@ -107,7 +107,7 @@ class Lugarturistico{
         return true;
     }
   
-  
+ }
   function update(){
     // query to insert record
     $query = "UPDATE
