@@ -15,7 +15,7 @@ $database = new Database();
 $db = $database->getConnection();
   
 // prepare t object
-$lugarTuri = new Lugarturistico($db);
+$lugarTuri = new Lugar_Turistico($db);
   
 // get  id
 $data = json_decode(file_get_contents("php://input"));
