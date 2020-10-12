@@ -11,6 +11,7 @@ class Lugarturistico{
     public $LT_Descripcion;
     public $LT_URL_Map;
     public $ID_Distrito;
+    public $Distrito;
     public $LT_Hora_Inicio;
     public $LT_Hora_Fin;
 
@@ -48,9 +49,46 @@ class Lugarturistico{
     if($stmt->execute()){
         return true;
     }
-  
+    else{
+        print_r($stmt->errorInfo());
+    }
     return false;
       
-}
+    }
+    function Consulta(){
+        // query to read single record
+    $query = "SELECT
+                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin
+            FROM
+                " . $this->table_name . " l
+                LEFT JOIN
+                    Tbl_Distrito d
+                        ON l.ID_Distrito = d.ID_Distrito
+            WHERE
+                l.ID_Lugar_Turistico = ?
+            LIMIT
+                0,1";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->ID_Lugar_Turistico);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Lugar_Turistico = $row['ID_Lugar_Turistico'];
+    $this->LT_Nombre = $row['LT_Nombre'];
+    $this->LT_Descripcion = $row['LT_Descripcion'];
+    $this->LT_URL_Map = $row['LT_URL_Map'];
+    $this->ID_Distrito = $row['ID_Distrito'];
+    $this->Distrito = $row['Distrito'];
+    $this->LT_Hora_Inicio = $row['LT_Hora_Inicio'];
+    $this->LT_Hora_Fin = $row['LT_Hora_Fin'];
+    }
 }
 ?>
