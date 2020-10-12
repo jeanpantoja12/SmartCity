@@ -18,7 +18,7 @@ class Vehiculo{
     public $CON_Longitud;
     public $CON_Status;
     public $CON_FCM;
-    public $CON_Fotografia_Licencia ;
+    public $CON_Fotografia_Licencia;
   ;
 
     // constructor with $db as database connection
