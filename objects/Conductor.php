@@ -19,7 +19,6 @@ class Conductor{
     public $CON_Status;
     public $CON_FCM;
     public $CON_Fotografia_Licencia;
-  ;
 
     // constructor with $db as database connection
     public function __construct($db){
