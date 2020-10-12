@@ -9,13 +9,13 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // get database connection
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/Indicente.php';
+include_once '../objects/Incidente.php';
 
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
   
-$indicente = new Indicente($db);
+$incidente = new Incidente($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
