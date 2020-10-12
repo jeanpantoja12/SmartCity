@@ -16,9 +16,7 @@ $db = $database->getConnection();
   
 // prepare product object
 $vehiculo = new Vehiculo($db);
-  
-// get posted data
-$data = json_decode(file_get_contents("php://input"));
+
   
 // make sure data is not empty
 if( 
