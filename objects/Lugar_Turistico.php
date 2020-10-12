@@ -101,7 +101,7 @@ class Lugarturistico{
   
     $this->ID_Lugar_Turistico=htmlspecialchars(strip_tags($this->ID_Lugar_Turistico));
   
-    $stmt->bindParam(1, $this->ID_Lugar_Turistico);
+   $stmt->bindParam(":ID_Lugar_Turistico", $this->ID_Lugar_Turistico);
   
     if($stmt->execute()){
         return true;
