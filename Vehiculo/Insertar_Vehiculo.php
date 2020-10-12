@@ -34,15 +34,15 @@ if(
   
     // set product property values
 
-    $user->VEH_Placa = $data->VEH_Placa;
-    $user->VEH_Color = $data->VEH_Color;
-    $user->VEH_Modelo = $data->VEH_Modelo;
-    $user->VEH_Marca = $data->VEH_Marca;
-    $user->ID_Tipo_Vehiculo = $data->ID_Tipo_Vehiculo;
-    $user->ID_Conductor = $data->ID_Conductor;
+    $vehiculo->VEH_Placa = $data->VEH_Placa;
+    $vehiculo->VEH_Color = $data->VEH_Color;
+    $vehiculo->VEH_Modelo = $data->VEH_Modelo;
+    $vehiculo->VEH_Marca = $data->VEH_Marca;
+    $vehiculo->ID_Tipo_Vehiculo = $data->ID_Tipo_Vehiculo;
+    $vehiculo->ID_Conductor = $data->ID_Conductor;
 
     // create the product
-    if($user->create()){
+    if($vehiculo->create()){
   
         // set response code - 201 created
         http_response_code(201);
