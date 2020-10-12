@@ -27,7 +27,17 @@ class Obra{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET OBR_Nombre=:OBR_Nombre, OBR_Descripcion=:OBR_Descripcion, ID_Tipo=:ID_Tipo, OBR_Fecha_Inicio=:OBR_Fecha_Inicio, OBR_Fecha_Fin=:OBR_Fecha_Fin, OBR_Monto=:OBR_Monto, OBR_Coordenada_X=:OBR_Coordenada_X, OBR_Coordenada_Y=:OBR_Coordenada_Y, ID_Municipalidad=:ID_Municipalidad", OBR_Dias_Calendarios=:OBR_Dias_Calendarios;
+            SET 
+            OBR_Nombre=:OBR_Nombre, 
+            OBR_Descripcion=:OBR_Descripcion, 
+            ID_Tipo=:ID_Tipo, 
+            OBR_Fecha_Inicio=:OBR_Fecha_Inicio, 
+            OBR_Fecha_Fin=:OBR_Fecha_Fin, 
+            OBR_Monto=:OBR_Monto, 
+            OBR_Coordenada_X=:OBR_Coordenada_X, 
+            OBR_Coordenada_Y=:OBR_Coordenada_Y, 
+            ID_Municipalidad=:ID_Municipalidad, 
+            OBR_Dias_Calendarios=:OBR_Dias_Calendarios";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
