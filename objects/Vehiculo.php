@@ -44,7 +44,7 @@ class Vehiculo{
     $stmt->bindParam(":VEH_Color", $this->VEH_Color);
     $stmt->bindParam(":VEH_Modelo", $this->VEH_Modelo);
     $stmt->bindParam(":VEH_Marca", $this->VEH_Marca);
-    $stmt->bindParam(":VEH_Tipo", $this->ID_Tipo_Vehiculo);
+    $stmt->bindParam(":ID_Tipo_Vehiculo", $this->ID_Tipo_Vehiculo);
     $stmt->bindParam(":ID_Vehiculo", $this->ID_Conductor);
 
     // execute query
@@ -54,7 +54,9 @@ class Vehiculo{
   
     return false;
       
-  }
+}
+
+
   function Consulta(){
         // query to read single record
     $query = "SELECT
@@ -94,6 +96,13 @@ class Vehiculo{
     $this->ID_Conductor = $row['ID_Conductor'];
     $this->Nombre_Conductor = $row['Nombre_Conductor'];
     }
-  
+
+
+
+
+
+
+
+
 }
 ?>
