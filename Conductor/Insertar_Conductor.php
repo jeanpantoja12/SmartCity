@@ -28,10 +28,10 @@ if(
     !empty($data->CON_Telefono) &&
     !empty($data->CON_Direccion) &&
     !empty($data->CON_Licencia) &&
-    !empty($data->CON_Fotografia_Perfil) && 
+    !empty($data->CON_Fotografia_Perfil) &&
     !empty($data->ID_Empresa_Transp) &&
     !empty($data->CON_Latitud) &&
-    !empty($data->CON_Longitud) &&
+    !empty($data->CON_Longitud) 
     !empty($data->CON_Status) &&
     !empty($data->CON_FCM) &&
     !empty($data->CON_Fotografia_Licencia)
@@ -39,8 +39,6 @@ if(
  
 ){
   
-
-
     $conductor->CON_Nombre = $data->CON_Nombre;
     $conductor->CON_Apellidos = $data->CON_Apellidos;
     $conductor->CON_Telefono = $data->CON_Telefono;
