@@ -157,7 +157,26 @@ class Lugarturistico{
     
     return false;
 }
+      function read(){
   
+    // select all query
+    $query = "SELECT
+                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin
+            FROM
+                " . $this->table_name . " l
+                LEFT JOIN
+                    Tbl_Distrito d
+                        ON l.ID_Distrito = d.ID_Distrito
+            ";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+  
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
   
 }
 ?>
