@@ -13,7 +13,7 @@ $json=array();
 
             $conexion=mysqli_connect($hostname_localhost,$username_localhost,$password_localhost,$database_localhost);
 
-            $consulta="SELECT `ID_Usuario`, `US_Nombres`, `US_Apellidos`, `US_Direcccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`, `US_Contrasena`, `US_Tipo` FROM `Tbl_Usuario` WHERE `ID_Usuario`= '{$id}'";
+            $consulta="SELECT `ID_Usuario`, `US_Nombres`, `US_Apellidos`, `US_Direccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`, `US_Contrasena`, `US_Tipo` FROM `Tbl_Usuario` WHERE `ID_Usuario`= '{$id}'";
 
 
             $resultado=mysqli_query($conexion,$consulta);
@@ -23,7 +23,7 @@ $json=array();
             }
 
             else{
-                echo("Error description: " . mysqli_error($conexion));
+                
             $resultar["ID_Usuario"]="No Registrado";
             $resultar['US_Nombres']="No User";
             $resultar['US_Apellidos']="No User";
