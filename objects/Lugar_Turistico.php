@@ -109,6 +109,47 @@ class Lugarturistico{
   
     return false;
 }
+  function update(){
+    // query to insert record
+    $query = "UPDATE
+                " . $this->table_name . "
+            SET 
+            LT_Nombre = :LT_Nombre, 
+            LT_Descripcion = :LT_Descripcion, 
+            LT_URL_Map = :LT_URL_Map, 
+            ID_Distrito = :ID_Distrito, 
+            LT_Hora_Inicio = :LT_Hora_Inicio, 
+            LT_Hora_Fin = :LT_Hora_Fin
+            WHERE
+                ID_Lugar_Turistico = :ID_Lugar_Turistico";
+
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+    // sanitize
+    $this->ID_Lugar_Turistico=htmlspecialchars(strip_tags($this->ID_Lugar_Turistico));
+    $this->LT_Nombre=htmlspecialchars(strip_tags($this->LT_Nombre));
+    $this->LT_Descripcion=htmlspecialchars(strip_tags($this->LT_Descripcion));
+    $this->LT_URL_Map=htmlspecialchars(strip_tags($this->LT_URL_Map));
+    $this->ID_Distrito=htmlspecialchars(strip_tags($this->ID_Distrito));
+    $this->LT_Hora_Inicio=htmlspecialchars(strip_tags($this->LT_Hora_Inicio));
+    $this->LT_Hora_Fin=htmlspecialchars(strip_tags($this->LT_Hora_Fin));
+    // bind values
+    $stmt->bindParam(":ID_Lugar_Turistico", $this->ID_Lugar_Turistico);
+    $stmt->bindParam(":LT_Nombre", $this->LT_Nombre);
+    $stmt->bindParam(":LT_Descripcion", $this->LT_Descripcion);
+    $stmt->bindParam(":LT_URL_Map", $this->LT_URL_Map);
+    $stmt->bindParam(":ID_Distrito", $this->ID_Distrito);
+    $stmt->bindParam(":LT_Hora_Inicio", $this->LT_Hora_Inicio);
+    $stmt->bindParam(":LT_Hora_Fin", $this->LT_Hora_Fin);
+    // execute query
+    if($stmt->execute()){
+        return true;
+        
+    }
+    
+    return false;
+}
   
   
 }
