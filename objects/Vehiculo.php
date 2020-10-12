@@ -15,6 +15,8 @@ class Vehiculo{
     public $VEH_Marca;
     public $ID_Tipo_Vehiculo;
     public $ID_Conductor;
+    public $Nombre_Conductor;
+    public $Tipo_Vehiculo;
   ;
 
     // constructor with $db as database connection
