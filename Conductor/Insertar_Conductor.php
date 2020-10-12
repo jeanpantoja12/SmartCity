@@ -28,7 +28,7 @@ if(
     !empty($data->CON_Telefono) &&
     !empty($data->CON_Direccion) &&
     !empty($data->CON_Licencia) &&
-    !empty($data->CON_Fotografia_Perfil) 
+    !empty($data->CON_Fotografia_Perfil) && 
     !empty($data->ID_Empresa_Transp) &&
     !empty($data->CON_Latitud) &&
     !empty($data->CON_Longitud) 
