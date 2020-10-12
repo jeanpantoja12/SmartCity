@@ -34,19 +34,25 @@ if(
     !empty($data->CON_Longitud) 
     !empty($data->CON_Status) &&
     !empty($data->CON_FCM) &&
-    !empty($data->CON_Fotografia_Licencia)&&
+    !empty($data->CON_Fotografia_Licencia)
  
  
 ){
   
 
 
-    $conductor->VEH_Placa = $data->VEH_Placa;
-    $conductor->VEH_Color = $data->VEH_Color;
-    $conductor->VEH_Modelo = $data->VEH_Modelo;
-    $conductor->VEH_Marca = $data->VEH_Marca;
-    $conductor->ID_Tipo_Vehiculo = $data->ID_Tipo_Vehiculo;
-    $conductor->ID_Conductor = $data->ID_Conductor;
+    $conductor->CON_Nombre = $data->CON_Nombre;
+    $conductor->CON_Apellidos = $data->CON_Apellidos;
+    $conductor->CON_Telefono = $data->CON_Telefono;
+    $conductor->CON_Direccion = $data->CON_Direccion;
+    $conductor->CON_Licencia = $data->CON_Licencia;
+    $conductor->CON_Fotografia_Perfil = $data->CON_Fotografia_Perfil;
+    $conductor->ID_Empresa_Transp = $data->ID_Empresa_Transp;
+    $conductor->CON_Latitud = $data->CON_Latitud;
+    $conductor->CON_Longitud = $data->CON_Longitud;
+    $conductor->CON_Status = $data->CON_Status;
+    $conductor->CON_FCM = $data->CON_FCM;
+    $conductor->CON_Fotografia_Licencia = $data->CON_Fotografia_Licencia;
 
 
     if($conductor->create()){
