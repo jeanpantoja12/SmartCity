@@ -24,7 +24,7 @@ class Incidente{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET ID_Vehiculo=:ID_Vehiculo, ID_Usuario=:ID_Usuario, ind_Descripcion=:ind_Descripcion, ind_Fotografia=:ind_Fotografia, ind_Fecha_Incidente=:ind_Fecha_Incidente, ID_Incidente=:ID_Incidente";
+            SET ID_Vehiculo=:ID_Vehiculo, ID_Usuario=:ID_Usuario, ind_Descripcion=:ind_Descripcion, ind_Fotografia=:ind_Fotografia, ind_Fecha_Incidente=:ind_Fecha_Incidente";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -46,10 +46,6 @@ class Incidente{
     // execute query
     if($stmt->execute()){
         return true;
-    }else{
-
-        print_r($stmt->errorInfo());
-
     }
   
     return false;
