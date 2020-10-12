@@ -1,5 +1,5 @@
 <?php
-class Vehiculo{
+class Conductor{
   
     // database connection and table name
     private $conn;
