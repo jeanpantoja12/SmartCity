@@ -142,6 +142,44 @@ function read(){
   
     return $stmt;
 }
+  
+  
+  
+  
+  
+  
+  
+  
+  function delete(){
+  
+    // delete query
+    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Comentario = ID_Comentario";
+  
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+    // sanitize
+    $this->ID_Comentario=htmlspecialchars(strip_tags($this->ID_Comentario));
+  
+    // bind id of record to delete
+    $stmt->bindParam(1, $this->ID_Comentario);
+  
+    // execute query
+    if($stmt->execute()){
+        return true;
+    }
+    return false;
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 function Consulta_Nombre(){
   
     // select all query
