@@ -50,7 +50,7 @@ class ComentarioObra{
     function Consulta(){
         // query to read single record
     $query = "SELECT
-                c.ID_Obra. o.OBR_Nombre as Obra, c.COM_Obra, c.COM_Calificacion, c.ID_Usuario,CONCAT(u.US_Nombres,' ',u.US_Apellidos) as Nombre_Usuario
+                c.ID_Obra, o.OBR_Nombre as Obra, c.ID_Comentario, c.COM_Obra, c.COM_Calificacion, c.ID_Usuario,CONCAT(u.US_Nombres,' ',u.US_Apellidos) as Nombre_Usuario
             FROM
                 " . $this->table_name . " c
                 LEFT JOIN
@@ -77,12 +77,12 @@ class ComentarioObra{
   
     // set values to object properties
     $this->ID_Comentario = $row['ID_Comentario'];
-    $this->ID_Obra=htmlspecialchars(strip_tags($this->ID_Obra));
-    $this->Obra = htmlspecialchars(strip_tags($this->Obra));
-    $this->COM_Obra=htmlspecialchars(strip_tags($this->COM_Obra));
-    $this->COM_Calificacion=htmlspecialchars(strip_tags($this->COM_Calificacion));
-    $this->ID_Usuario=htmlspecialchars(strip_tags($this->ID_Usuario));
-    $this->Nombre_Usuario = htmlspecialchars(strip_tags($this->Nombre_Usuario));
+    $this->ID_Obra = $row['ID_Obra'];
+    $this->Obra = $row['Obra'];
+    $this->COM_Obra = $row['COM_Obra'];
+    $this->COM_Calificacion = $row['COM_Calificacion'];
+    $this->ID_Usuario = $row['ID_Usuario'];
+    $this->Nombre_Usuario = $row['Nombre_Usuario'];
     }
     function update(){
     // query to insert record
