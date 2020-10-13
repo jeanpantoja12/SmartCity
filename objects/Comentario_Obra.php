@@ -153,7 +153,7 @@ function read(){
   function delete(){
   
     // delete query
-    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Comentario = ID_Comentario";
+    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Comentario = ?";
   
     // prepare query
     $stmt = $this->conn->prepare($query);
