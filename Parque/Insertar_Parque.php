@@ -35,21 +35,23 @@ if(
   
     // set product property values
 
-    $incidente->ID_Vehiculo = $data->ID_Vehiculo;
-    $incidente->ID_Usuario = $data->ID_Usuario;
-    $incidente->ind_Descripcion = $data->ind_Descripcion;
-    $incidente->ind_Fotografia = $data->ind_Fotografia;
-    $incidente->ind_Fecha_Incidente = $data->ind_Fecha_Incidente;
+    $parques->PQ_Nombre = $data->PQ_Nombre;
+    $parques->PQ_Descripcion = $data->PQ_Descripcion;
+    $parques->ID_Distrito = $data->ID_Distrito;
+    $parques->PQ_Direccion = $data->PQ_Direccion;
+    $parques->PQ_Nivel_humedad = $data->PQ_Nivel_humedad;
+    $parques->PQ_Nivel_Radiacion = $data->PQ_Nivel_Radiacion;
+    $parques->PQ_Nivel_Ruido = $data->PQ_Nivel_Ruido;
 
 
     // create the product
-    if($incidente->create()){
+    if($parques->create()){
   
         // set response code - 201 created
         http_response_code(201);
   
         // tell the user
-        echo json_encode(array("message" => "Incidente creado correctamente."));
+        echo json_encode(array("message" => "Parque creado correctamente."));
     }
   
     // if unable to create the product, tell the user
