@@ -58,6 +58,41 @@ class Parques{
     return false;
       
 }
-
+function Consulta(){
+        // query to read single record
+    $query = "SELECT
+                p.ID_Parque, p.PQ_Nombre, p.PQ_Descripcion, p.ID_Distrito,d.DIS_Nombre as Distrito,p.PQ_Direccion,p.PQ_Nivel_humedad, p.PQ_Nivel_Ruido,p.PQ_Nivel_Radiacion
+            FROM
+                " . $this->table_name . " p
+                LEFT JOIN
+                    Tbl_Distrito d
+                        ON p.ID_Distrito = d.ID_Distrito
+            WHERE
+                p.ID_Parque = ?
+            LIMIT
+                0,1";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->ID_Parque);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Parque = $row['ID_Parque'];
+    $this->PQ_Nombre = $row['PQ_Nombre'];
+    $this->PQ_Descripcion = $row['PQ_Descripcion'];
+    $this->ID_Distrito = $row['ID_Distrito'];
+    $this->Distrito = $row['Distrito'];
+    $this->PQ_Direccion = $row['PQ_Direccion'];
+    $this->PQ_Nivel_humedad = $row['PQ_Nivel_humedad'];
+    $this->PQ_Nivel_Ruido = $row['PQ_Nivel_Ruido'];
+    $this->PQ_Nivel_Radiacion = $row['PQ_Nivel_Radiacion'];
+    }
 }
 ?>
