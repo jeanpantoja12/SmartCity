@@ -162,7 +162,7 @@ function read(){
     $this->ID_Comentario=htmlspecialchars(strip_tags($this->ID_Comentario));
   
     // bind id of record to delete
-    $stmt->bindParam(":ID_Comentario", $this->ID_Comentario);
+    $stmt->bindParam(1, $this->ID_Comentario);
   
     // execute query
     if($stmt->execute()){
