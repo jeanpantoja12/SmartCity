@@ -11,7 +11,7 @@ class Parques{
     public $PQ_Nombre;
     public $PQ_Descripcion;
     public $ID_Distrito;
-    public $Distrito
+    public $Distrito;
     public $PQ_Direccion;
     public $PQ_Nivel_humedad;
     public $PQ_Nivel_Radiacion;
