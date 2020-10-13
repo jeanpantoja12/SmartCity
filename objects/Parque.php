@@ -11,6 +11,7 @@ class Parques{
     public $PQ_Nombre;
     public $PQ_Descripcion;
     public $ID_Distrito;
+    public $Distrito
     public $PQ_Direccion;
     public $PQ_Nivel_humedad;
     public $PQ_Nivel_Radiacion;
@@ -94,5 +95,26 @@ function Consulta(){
     $this->PQ_Nivel_Ruido = $row['PQ_Nivel_Ruido'];
     $this->PQ_Nivel_Radiacion = $row['PQ_Nivel_Radiacion'];
     }
+  
+  function read(){
+  
+    // select all query
+    $query = "SELECT
+                p.ID_Parque, p.PQ_Nombre, p.PQ_Descripcion, p.ID_Distrito,d.DIS_Nombre as Distrito,p.PQ_Direccion, p.PQ_Nivel_humedad, p.PQ_Nivel_Radiacion, p.PQ_Nivel_Ruido
+            FROM
+                " . $this->table_name . " p
+                LEFT JOIN
+                    Tbl_Distrito d
+                        ON p.ID_Distrito = d.ID_Distrito
+            ";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+  
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
 }
 ?>
