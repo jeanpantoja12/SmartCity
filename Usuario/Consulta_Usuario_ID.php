@@ -17,14 +17,21 @@ $db = $database->getConnection();
 // prepare product object
 $user = new Usuario($db);
 // set ID property of record to read
-$user->ID_Usuario = isset($_GET['ID_Usuario']) ? $_GET['ID_Usuario'] : die();
-  
+$data = file_get_contents('php://input');
+$json = json_decode($data);
+//$data = json_decode(file_get_contents("php://input"));
+
+ 
 // read the details of product to be edited
-$user->ConsultaID();
+$user = $json->{'ID_Usuario'};
   
-if($user->ID_Usuario!=null){
+if($user->ID_Usuario!=null)
+{
+    
+$stmt = $user->ConsultaID();
     // create array
     $user_arr = array(
+    if($stmt->rowCount() > 0){    
         "ID_Usuario" =>  $user->ID_Usuario,
         "US_Nombres" => $user->US_Nombres,
         "US_Apellidos" => $user->US_Apellidos,
@@ -37,18 +44,24 @@ if($user->ID_Usuario!=null){
   
     // set response code - 200 OK
     http_response_code(200);
-  
-    // make it json format
-    echo json_encode($user_arr);
-}
-  
-else{
-    // set response code - 404 Not found
-    http_response_code(404);
-  
-    // tell the user product does not exist
-    echo json_encode(array("message" => "Usuario no existe."));
+  }else{
+        $user_arr=array(
+            "status" => false,
+            "message" => "Usuario Incorrecto",
+        );
+        http_response_code(404);
+        
+    }
 }
 
+else
+{
+    $user_arr=array(
+            "status" => false,
+            "message" => "Datos Incompletos",
+        );
+    http_response_code(500);
+}
+echo json_encode($user_arr);
 
 ?>
