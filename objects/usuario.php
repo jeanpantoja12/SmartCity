@@ -106,22 +106,18 @@ function cambiar_password(){
   
 function ConsultaID(){
         // query to read single record
-    $query = "SELECT ID_Usuario, US_Nombres, US_Apellidos, US_Direccion, US_Fecha_Nacimiento, US_Nacionalidad, US_Telefono, US_Email FROM " . $this->table_name . " WHERE ID_Usuario = ?";
-                // prepare query statement
-    $stmt = $this->conn->prepare( $query );
-  
-
-    // bind id of product to be updated
-    $this->ID_Usuario=htmlspecialchars(strip_tags($this->ID_Usuario));
-    $stmt->bindParam(1, $this->ID_Usuario);
-  
-    if($stmt->execute()){
-        return true;
-    }else {
-        print_r($stmt->errorInfo());
+   // $query = "SELECT ID_Usuario, US_Nombres, US_Apellidos, US_Direccion, US_Fecha_Nacimiento, US_Nacionalidad, US_Telefono, US_Email FROM " . $this->table_name . " WHERE ID_Usuario = ?";
+          $query = "SELECT
+                    `ID_Usuario`, `US_Nombres`, `US_Apellidos`, `US_Direccion`, `US_Fecha_Nacimiento`, `US_Nacionalidad`, `US_Telefono`, `US_Email`
+                FROM
+                    " . $this->table_name . " 
+                WHERE
+                    ID_Usuario='".$this->ID_Usuario."'";
+                     $stmt = $this->conn->prepare($query);
+        // execute query
+        $stmt->execute();
+        return $stmt;
     }
-
-  }
   
   
   
