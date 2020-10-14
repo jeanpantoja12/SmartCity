@@ -21,9 +21,9 @@ $usuario = new Usuario($db);
 $data = json_decode(file_get_contents("php://input"));
   
 // set ID property of product to be edited
-$usuario->ID_Usuario = $data->ID_Usuario;
+$usuario->US_Email = $data->US_Email;
 if( 
-    !empty($data->ID_Usuario) &&
+    !empty($data->US_Email) &&
     !empty($data->US_Contrasena)){
 		// set product property values
 		$usuario->US_Contrasena = $data->US_Contrasena;
