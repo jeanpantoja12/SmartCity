@@ -30,8 +30,9 @@ if($user->ID_Usuario!=null)
     
 $stmt = $user->ConsultaID();
     // create array
-    $user_arr = array(
-    if($stmt->rowCount() > 0){    
+   
+    if($stmt->rowCount() > 0){  
+     $user_arr = array(  
         "ID_Usuario" =>  $user->ID_Usuario,
         "US_Nombres" => $user->US_Nombres,
         "US_Apellidos" => $user->US_Apellidos,
