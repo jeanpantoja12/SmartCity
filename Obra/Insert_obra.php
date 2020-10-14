@@ -30,7 +30,6 @@ if(
     !empty($data->OBR_Monto) &&
     !empty($data->OBR_Coordenada_X) &&
     !empty($data->OBR_Coordenada_Y) &&
-    !empty($data->ID_Municipalidad)&&
     !empty($data->OBR_Dias_Calendarios)
 ){
   
@@ -43,7 +42,6 @@ if(
     $obra->OBR_Monto = $data->OBR_Monto;
     $obra->OBR_Coordenada_X = $data->OBR_Coordenada_X;
     $obra->OBR_Coordenada_Y = $data->OBR_Coordenada_Y;
-    $obra->ID_Municipalidad = $data->ID_Municipalidad;
     $obra->OBR_Dias_Calendarios = $data->OBR_Dias_Calendarios;
     // create the product
     if($obra->create()){
