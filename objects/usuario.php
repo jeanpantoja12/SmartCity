@@ -101,6 +101,39 @@ function cambiar_password(){
     }
     return false;
 }
+  
+  
+  
+   function ConsultaID(){
+  
+    // select all query
+      $query = "SELECT
+               ID_Usuario, US_Nombres, US_Apellidos, US_Direccion, US_Fecha_Nacimiento, US_Nacionalidad, US_Telefono, US_Email
+            FROM
+                " . $this->table_name . " 
+            WHERE
+                 ID_Usuario = ?";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+  
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 function update(){
     // query to insert record
     $query = "UPDATE
