@@ -1,25 +1,22 @@
-<?PHP
-// required headers
+<?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
-
+  
+  
 // include database and object files
 include_once '../config/database.php';
 include_once '../objects/usuario.php';
-  
-// get database connection
-$database = new Database();
+ $database = new Database();
 $db = $database->getConnection();
-  
-// prepare product object
+ 
+// prepare user object
 $user = new Usuario($db);
-// set ID property of record to read
+
 $data = file_get_contents('php://input');
 $json = json_decode($data);
-//$data = json_decode(file_get_contents("php://input"));
 
  
 // read the details of product to be edited
