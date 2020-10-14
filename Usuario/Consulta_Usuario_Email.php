@@ -35,7 +35,7 @@ if(!empty($US_Email))
         $user_arr=array(
             "status" => true,
             "message" => "Consulta Satisfactoria!",
-            "ID_Usuario" => $row['US_Nombres'],
+            "ID_Usuario" => $row['ID_Usuario'],
             "US_Nombres" => $row['US_Nombres'],
             "US_Apellidos" => $row['US_Apellidos'],
             "US_Direccion" => $row['US_Direccion'],
