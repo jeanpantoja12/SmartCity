@@ -74,7 +74,9 @@ function login(){
         $stmt->execute();
         return $stmt;
     }
-function cambiar_password(){
+
+  
+  function cambiar_password(){
         // select all query with user inputed username and password
         // update query
     $query = "UPDATE
@@ -82,16 +84,16 @@ function cambiar_password(){
             SET
                 US_Contrasena = :US_Contrasena
             WHERE
-                ID_Usuario = :ID_Usuario";
+                US_Email = :US_Email";
   
     // prepare query statement
     $stmt = $this->conn->prepare($query);
         // sanitize
     $this->US_Contrasena=htmlspecialchars(strip_tags($this->US_Contrasena));
-    $this->ID_Usuario=htmlspecialchars(strip_tags($this->ID_Usuario));
+    $this->US_Email=htmlspecialchars(strip_tags($this->US_Email));
        // bind new values
     $stmt->bindParam(':US_Contrasena', $this->US_Contrasena);
-    $stmt->bindParam(':ID_Usuario', $this->ID_Usuario);
+    $stmt->bindParam(':US_Email', $this->US_Email);
     // execute the query
     if($stmt->execute()){
         return true;
