@@ -24,21 +24,24 @@ $ID_Usuario = $json->{'ID_Usuario'};
   
 if(!empty($ID_Usuario))
 {
-$user->ID_Usuario = $ID_Usuario;
-    
-$stmt = $user->ConsultaID();
+    $user->ID_Usuario = $ID_Usuario;
+    $stmt = $user->ConsultaID();
     // create array
    
     if($stmt->rowCount() > 0){  
-     $user_arr = array(  
-        "ID_Usuario" =>  $user->ID_Usuario,
-        "US_Nombres" => $user->US_Nombres,
-        "US_Apellidos" => $user->US_Apellidos,
-        "US_Direccion" => $user->US_Direccion,
-        "US_Fecha_Nacimiento" => $user->US_Fecha_Nacimiento,
-        "US_Nacionalidad" => $user->US_Nacionalidad,
-        "US_Telefono" => $user->US_Telefono,
-        "US_Email" => $user->US_Email
+     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // create array
+        $user_arr=array(
+            "status" => true,
+            "message" => "Consulta Satisfactoria!",
+            "ID_Usuario" => $row['US_Nombres'],
+            "US_Nombres" => $row['US_Nombres'],
+            "US_Apellidos" => $row['US_Apellidos'],
+            "US_Direccion" => $row['US_Direccion'],
+            "US_Fecha_Nacimiento" => $row['US_Fecha_Nacimiento'],
+            "US_Nacionalidad" => $row['US_Nacionalidad'],
+            "US_Telefono" => $row['US_Telefono'],
+            "US_Email" => $row['US_Email']
     );
   
     // set response code - 200 OK
