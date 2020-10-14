@@ -106,34 +106,23 @@ function cambiar_password(){
   
 function ConsultaID(){
         // query to read single record
-    $query = "SELECT
-               ID_Usuario, US_Nombres, US_Apellidos, US_Direccion, US_Fecha_Nacimiento, US_Nacionalidad, US_Telefono, US_Email
-            FROM
-                " . $this->table_name . " 
-            WHERE
-                 ID_Usuario = ?";
+    $query = "SELECT ID_Usuario, US_Nombres, US_Apellidos, US_Direccion, US_Fecha_Nacimiento, US_Nacionalidad, US_Telefono, US_Email FROM " . $this->table_name . " WHERE ID_Usuario = ?";
                 // prepare query statement
     $stmt = $this->conn->prepare( $query );
   
+
     // bind id of product to be updated
+    $this->ID_Usuario=htmlspecialchars(strip_tags($this->ID_Usuario));
     $stmt->bindParam(1, $this->ID_Usuario);
   
-    // execute query
-    $stmt->execute();
-  
-    // get retrieved row
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-    // set values to object properties
-    $this->ID_Usuario = $row['ID_Usuario'];
-    $this->US_Nombres = $row['US_Nombres'];
-    $this->US_Apellidos = $row['US_Apellidos'];
-    $this->US_Direccion = $row['US_Direccion'];
-    $this->US_Fecha_Nacimiento = $row['US_Fecha_Nacimiento'];
-    $this->US_Nacionalidad = $row['US_Nacionalidad'];
-    $this->US_Telefono = $row['US_Telefono'];
-    $this->US_Email = $row['US_Email'];
+    if($stmt->execute()){
+        return true;
     }
+
+  }
+  
+  
+  
   
   
   
