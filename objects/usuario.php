@@ -138,7 +138,7 @@ function ConsultaID(){
   
   
   
-  function ConsultaEmail(){
+function ConsultaEmail(){
         // query to read single record
     $query = "SELECT
                ID_Usuario, US_Nombres, US_Apellidos, US_Direccion, US_Fecha_Nacimiento, US_Nacionalidad, US_Telefono, US_Email
