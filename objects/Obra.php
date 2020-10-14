@@ -15,7 +15,6 @@ class Obra{
     public $OBR_Monto;
     public $OBR_Coordenada_X;
     public $OBR_Coordenada_Y;
-    public $ID_Municipalidad;
     public $OBR_Dias_Calendarios;
 
     // constructor with $db as database connection
@@ -36,7 +35,6 @@ class Obra{
             OBR_Monto=:OBR_Monto, 
             OBR_Coordenada_X=:OBR_Coordenada_X, 
             OBR_Coordenada_Y=:OBR_Coordenada_Y, 
-            ID_Municipalidad=:ID_Municipalidad, 
             OBR_Dias_Calendarios=:OBR_Dias_Calendarios";
 
     // prepare query
@@ -51,7 +49,6 @@ class Obra{
     $this->OBR_Monto=htmlspecialchars(strip_tags($this->OBR_Monto));
     $this->OBR_Coordenada_X=htmlspecialchars(strip_tags($this->OBR_Coordenada_X));
     $this->OBR_Coordenada_Y=htmlspecialchars(strip_tags($this->OBR_Coordenada_Y));
-    $this->ID_Municipalidad=htmlspecialchars(strip_tags($this->ID_Municipalidad));
     $this->OBR_Dias_Calendarios=htmlspecialchars(strip_tags($this->OBR_Dias_Calendarios));
     // bind values
     $stmt->bindParam(":OBR_Nombre", $this->OBR_Nombre);
@@ -62,7 +59,6 @@ class Obra{
     $stmt->bindParam(":OBR_Monto", $this->OBR_Monto);
     $stmt->bindParam(":OBR_Coordenada_X", $this->OBR_Coordenada_X);
     $stmt->bindParam(":OBR_Coordenada_Y", $this->OBR_Coordenada_Y);
-    $stmt->bindParam(":ID_Municipalidad", $this->ID_Municipalidad);
     $stmt->bindParam(":OBR_Dias_Calendarios", $this->OBR_Dias_Calendarios);
     // execute query
     if($stmt->execute()){
