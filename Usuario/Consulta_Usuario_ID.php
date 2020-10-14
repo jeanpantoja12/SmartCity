@@ -20,10 +20,11 @@ $json = json_decode($data);
 
  
 // read the details of product to be edited
-$user = $json->{'ID_Usuario'};
+$ID_Usuario = $json->{'ID_Usuario'};
   
-if($user->ID_Usuario!=null)
+if(!empty($ID_Usuario))
 {
+$user->ID_Usuario = $ID_Usuario;
     
 $stmt = $user->ConsultaID();
     // create array
