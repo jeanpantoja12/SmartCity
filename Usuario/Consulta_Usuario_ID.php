@@ -20,7 +20,7 @@ $user = new Usuario($db);
 $user->ID_Usuario = isset($_GET['ID_Usuario']) ? $_GET['ID_Usuario'] : die();
   
 // read the details of product to be edited
-$user->Consulta();
+$user->ConsultaID();
   
 if($user->ID_Usuario!=null){
     // create array
