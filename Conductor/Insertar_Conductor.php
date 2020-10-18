@@ -15,7 +15,7 @@ include_once '../objects/Conductor.php';
 $database = new Database();
 $db = $database->getConnection();
   
-$comment = new ComentarioObra($db);
+$comment = new Conductor($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
