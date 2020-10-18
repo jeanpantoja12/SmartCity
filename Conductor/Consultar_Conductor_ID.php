@@ -26,7 +26,7 @@ $ID_Conductor = $json->{'ID_Conductor'};
 
 if(!empty($ID_Conductor)){
     // create array
-    $conductor->ID_Conductor =$ID_Conductor
+    $conductor->ID_Conductor =$ID_Conductor;
     $stmt = $conductor->Consulta();
     
     if($stmt->rowCount() > 0){  
@@ -44,7 +44,7 @@ if(!empty($ID_Conductor)){
             "CON_Longitud" => $row['CON_Longitud'],
             "CON_FCM" => $row['CON_FCM'],
             "CON_Fotografia_Licencia" => $row['CON_Fotografia_Licencia'],
-            "CON_Email" => $row['CON_Email'],
+            "CON_Email" => $row['CON_Email']
     );
   
     // set response code - 200 OK
