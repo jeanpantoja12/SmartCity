@@ -88,5 +88,41 @@ class Incidente{
     $this->ind_Fotografia = $row['ind_Fotografia'];
     $this->ind_Fecha_Incidente = $row['ind_Fecha_Incidente'];
     }
+   function Consultafecha(){
+        // query to read single record
+    $query = "SELECT
+                i.ID_Incidente, i.ID_Vehiculo, i.ID_Usuario, i.ind_Descripcion, i.ind_Fotografia, i.ind_Fecha_Incidente
+            FROM
+                " . $this->table_name . " i
+                LEFT JOIN
+                    Tbl_Vehiculo v
+                        ON i.ID_Vehiculo = v.ID_Vehiculo
+                LEFT JOIN
+                    Tbl_Usuario u
+                        ON i.ID_Usuario = u.ID_Usuario
+            WHERE
+                i.ID_Vehiculo = ?
+            ORDER BY
+                i.ind_Fecha_Incidente DESC";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->ID_Incidente);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Incidente = $row['ID_Incidente'];
+    $this->ID_Vehiculo = $row['ID_Vehiculo'];
+    $this->ID_Usuario = $row['ID_Usuario'];
+    $this->ind_Descripcion = $row['ind_Descripcion'];
+    $this->ind_Fotografia = $row['ind_Fotografia'];
+    $this->ind_Fecha_Incidente = $row['ind_Fecha_Incidente'];
+    }
 }
 ?>
