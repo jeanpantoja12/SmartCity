@@ -24,7 +24,7 @@ $password = $json->{'CON_Contrasena'};
 if(!empty($email) and !empty($password))
 {
     $user->CON_Email = $email;
-    $user->CON_ContrasenaN = $password;
+    $user->CON_Contrasena = $password;
     $stmt = $user->login();
     if($stmt->rowCount() > 0){
         // get retrieved row
