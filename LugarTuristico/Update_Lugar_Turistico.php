@@ -26,7 +26,9 @@ if(
     !empty($data->LT_URL_Map) &&
     !empty($data->ID_Distrito) &&
     !empty($data->LT_Hora_Inicio) &&
-    !empty($data->LT_Hora_Fin)
+    !empty($data->LT_Hora_Fin) && 
+    !empty($data->LT_Latitud) &&
+    !empty($data->LT_Longitud)
 ){
 	// set ID property of product to be edited
 	$lugart->ID_Lugar_Turistico = $data->ID_Lugar_Turistico;
@@ -38,6 +40,8 @@ if(
     $lugart->ID_Distrito = $data->ID_Distrito;
     $lugart->LT_Hora_Inicio = $data->LT_Hora_Inicio;
     $lugart->LT_Hora_Fin = $data->LT_Hora_Fin;
+	$lugart->LT_Latitud = $data->LT_Latitud;
+    $lugart->LT_Longitud = $data->LT_Longitud;
 	// update the product
 	if($lugart->update()){
 	  
