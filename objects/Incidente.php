@@ -103,7 +103,8 @@ class Incidente{
             WHERE
                 i.ID_Vehiculo = ?
             ORDER BY
-                i.ind_Fecha_Incidente DESC";
+                i.ind_Fecha_Incidente 
+                DESC";
                 // prepare query statement
     $stmt = $this->conn->prepare( $query );
   
