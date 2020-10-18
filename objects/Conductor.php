@@ -107,6 +107,7 @@ class Conductor{
     $stmt = $this->conn->prepare($query);
   
     // sanitize
+    $this->ID_Conductor=htmlspecialchars(strip_tags($this->ID_Conductor));
     $this->CON_Nombre=htmlspecialchars(strip_tags($this->CON_Nombre));
     $this->CON_Apellidos=htmlspecialchars(strip_tags($this->CON_Apellidos));
     $this->CON_Telefono=htmlspecialchars(strip_tags($this->CON_Telefono));
@@ -122,6 +123,7 @@ class Conductor{
     $this->CON_Email=htmlspecialchars(strip_tags($this->CON_Email));
 
     // bind values
+    $stmt->bindParam(":ID_Conductor", $this->ID_Conductor);
     $stmt->bindParam(":CON_Nombre", $this->CON_Nombre);
     $stmt->bindParam(":CON_Apellidos", $this->CON_Apellidos);
     $stmt->bindParam(":CON_Telefono", $this->CON_Telefono);
