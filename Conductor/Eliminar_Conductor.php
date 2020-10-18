@@ -21,6 +21,9 @@ $conductor = new Conductor($db);
 $data = json_decode(file_get_contents("php://input"));
   
 
+
+if(!empty($data->ID_Conductor)){
+
 $conductor->ID_Conductor = $data->ID_Conductor;
   
 
@@ -41,5 +44,11 @@ else{
   
    
     echo json_encode(array("message" => "No se puede eliminar Conductor."));
+}
+}else{
+	http_response_code(404);
+	  
+	    // tell the user
+	    echo json_encode(array("message" => "Error, No existe el dato"));
 }
 ?>
