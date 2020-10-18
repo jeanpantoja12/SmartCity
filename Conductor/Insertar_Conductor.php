@@ -20,7 +20,7 @@ $conductor = new Conductor($db);
  if(is_uploaded_file($_FILES["conductor_image"]["tmp_name"])){
      $tmp_file = $_FILES["conductor_image"]["tmp_name"];
      $img_name = $_FILES["conductor_image"]["name"];
-     $upload_dir = "./images/mov_urbana/".$img_name;
+     $upload_dir = "https://api.github.com/repos/jeanpantoja12/SmartCity/images/".$img_name;
      $conductor->CON_Fotografia_Licencia = $upload_dir;
  }
   
