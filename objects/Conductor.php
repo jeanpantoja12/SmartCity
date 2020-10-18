@@ -153,7 +153,7 @@ function read(){
   
     // select all query
     $query = "SELECT
-                c.ID_Conductor, c.CON_Nombre, c.CON_Apellidos, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia,c.CON_Fotografia_Perfil, c.ID_Empresa_Transp, c.CON_Latitud, c.CON_Longitud, c.CON_Status, c.CON_FCM, c.CON_Fotografia_Licencia
+                c.ID_Conductor, c.CON_Nombre, c.CON_Apellidos, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia,c.CON_Fotografia_Perfil, c.ID_Empresa_Transp, c.CON_Latitud, c.CON_Longitud, c.CON_Status, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
             FROM
                 " . $this->table_name . " c";
   
