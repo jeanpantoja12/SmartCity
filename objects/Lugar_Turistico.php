@@ -14,6 +14,9 @@ class Lugarturistico{
     public $Distrito;
     public $LT_Hora_Inicio;
     public $LT_Hora_Fin;
+    public $LT_Latitud;
+    public $LT_Longitud;
+
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -24,7 +27,7 @@ class Lugarturistico{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET LT_Nombre=:LT_Nombre, LT_Descripcion=:LT_Descripcion, LT_URL_Map=:LT_URL_Map, ID_Distrito=:ID_Distrito, LT_Hora_Inicio=:LT_Hora_Inicio, LT_Hora_Fin=:LT_Hora_Fin";
+            SET LT_Nombre=:LT_Nombre, LT_Descripcion=:LT_Descripcion, LT_URL_Map=:LT_URL_Map, ID_Distrito=:ID_Distrito, LT_Hora_Inicio=:LT_Hora_Inicio, LT_Hora_Fin=:LT_Hora_Fin, LT_Latitud=:LT_Latitud, LT_Longitud=:LT_Longitud";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -36,6 +39,8 @@ class Lugarturistico{
     $this->ID_Distrito=htmlspecialchars(strip_tags($this->ID_Distrito));
     $this->LT_Hora_Inicio=htmlspecialchars(strip_tags($this->LT_Hora_Inicio));
     $this->LT_Hora_Fin=htmlspecialchars(strip_tags($this->LT_Hora_Fin));
+    $this->LT_Latitud=htmlspecialchars(strip_tags($this->LT_Latitud));
+    $this->LT_Longitud=htmlspecialchars(strip_tags($this->LT_Longitud));
 
     // bind values
     $stmt->bindParam(":LT_Nombre", $this->LT_Nombre);
@@ -44,6 +49,8 @@ class Lugarturistico{
     $stmt->bindParam(":ID_Distrito", $this->ID_Distrito);
     $stmt->bindParam(":LT_Hora_Inicio", $this->LT_Hora_Inicio);
     $stmt->bindParam(":LT_Hora_Fin", $this->LT_Hora_Fin);
+    $stmt->bindParam(":LT_Latitud", $this->LT_Latitud);
+    $stmt->bindParam(":LT_Longitud", $this->LT_Longitud);
  
     // execute query
     if($stmt->execute()){
@@ -58,7 +65,7 @@ class Lugarturistico{
     function Consulta(){
         // query to read single record
     $query = "SELECT
-                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin
+                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin, l.LT_Latitud, l.LT_Longitud
             FROM
                 " . $this->table_name . " l
                 LEFT JOIN
@@ -89,6 +96,8 @@ class Lugarturistico{
     $this->Distrito = $row['Distrito'];
     $this->LT_Hora_Inicio = $row['LT_Hora_Inicio'];
     $this->LT_Hora_Fin = $row['LT_Hora_Fin'];
+    $this->LT_Latitud = $row['LT_Latitud'];
+    $this->LT_Longitud = $row['LT_Longitud'];
     }
   
   
@@ -118,7 +127,9 @@ class Lugarturistico{
             LT_URL_Map = :LT_URL_Map, 
             ID_Distrito = :ID_Distrito, 
             LT_Hora_Inicio = :LT_Hora_Inicio, 
-            LT_Hora_Fin = :LT_Hora_Fin
+            LT_Hora_Fin = :LT_Hora_Fin,
+            LT_Latitud = :LT_Latitud, 
+            LT_Longitud = :LT_Longitud
             WHERE
                 ID_Lugar_Turistico = :ID_Lugar_Turistico";
 
@@ -133,6 +144,8 @@ class Lugarturistico{
     $this->ID_Distrito=htmlspecialchars(strip_tags($this->ID_Distrito));
     $this->LT_Hora_Inicio=htmlspecialchars(strip_tags($this->LT_Hora_Inicio));
     $this->LT_Hora_Fin=htmlspecialchars(strip_tags($this->LT_Hora_Fin));
+    $this->LT_Latitud=htmlspecialchars(strip_tags($this->LT_Latitud));
+    $this->LT_Longitud=htmlspecialchars(strip_tags($this->LT_Longitud));
     // bind values
     $stmt->bindParam(":ID_Lugar_Turistico", $this->ID_Lugar_Turistico);
     $stmt->bindParam(":LT_Nombre", $this->LT_Nombre);
@@ -141,6 +154,8 @@ class Lugarturistico{
     $stmt->bindParam(":ID_Distrito", $this->ID_Distrito);
     $stmt->bindParam(":LT_Hora_Inicio", $this->LT_Hora_Inicio);
     $stmt->bindParam(":LT_Hora_Fin", $this->LT_Hora_Fin);
+     $stmt->bindParam(":LT_Latitud", $this->LT_Latitud);
+    $stmt->bindParam(":LT_Longitud", $this->LT_Longitud);
     // execute query
     if($stmt->execute()){
         return true;
@@ -153,7 +168,7 @@ class Lugarturistico{
   
     // select all query
     $query = "SELECT
-                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin
+                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin, l.LT_Latitud, l.LT_Longitud
             FROM
                 " . $this->table_name . " l
                 LEFT JOIN
