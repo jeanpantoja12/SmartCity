@@ -32,7 +32,9 @@ if($lugar->ID_Lugar_Turistico!=null){
         "ID_Distrito" => $lugar->ID_Distrito,
         "Distrito" => $lugar->Distrito,
         "LT_Hora_Inicio" => $lugar->LT_Hora_Inicio,
-        "LT_Hora_Fin" => $lugar->LT_Hora_Fin
+        "LT_Hora_Fin" => $lugar->LT_Hora_Fin,
+      "	LT_Latitud" => $lugar->	LT_Latitud,
+      "LT_Longitud" => $lugar->LT_Longitud
     );
   
     // set response code - 200 OK
