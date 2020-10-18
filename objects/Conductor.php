@@ -226,7 +226,20 @@ function read(){
     }
   
  }
-  
+   function login(){
+        // select all query with user inputed username and password
+        $query = "SELECT
+                    `ID_Conductor`, `CON_Email`
+                FROM
+                    " . $this->table_name . " 
+                WHERE
+                    CON_Email='".$this->CON_Email."' AND CON_Contrasena='".$this->CON_Contrasena."'";
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        // execute query
+        $stmt->execute();
+        return $stmt;
+    }
   
  
 
