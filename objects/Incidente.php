@@ -108,7 +108,7 @@ class Incidente{
     $stmt = $this->conn->prepare( $query );
   
     // bind id of product to be updated
-    $stmt->bindParam(1, $this->ID_Incidente);
+    $stmt->bindParam(1, $this->ID_Vehiculo);
   
     // execute query
     $stmt->execute();
