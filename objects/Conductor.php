@@ -164,7 +164,7 @@ function read(){
   function Consulta(){
         // query to read single record
     $query = "SELECT
-                c.ID_Conductor, CONCAT(c.CON_Nombre,' ',c.CON_Apellidos) as Nombre_Conductor, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia, e.EMT_Nombre as Nombre_Empresa, c.CON_Latitud, c.CON_Longitud, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
+                `ID_Conductor`, CONCAT(`CON_Nombre`,' ',`CON_Apellidos`) as Nombre_Conductor, `CON_Telefono`, `CON_Direccion`, `CON_Licencia`, e.EMT_Nombre as Nombre_Empresa, `CON_Latitud`, `CON_Longitud`, `CON_FCM`, `CON_Fotografia_Licencia`, `CON_Email`
             FROM
                 " . $this->table_name . " c
                 LEFT JOIN
@@ -172,7 +172,7 @@ function read(){
                         ON c.ID_Empresa_Transp = e.ID_Empresa_Transp
                 
             WHERE
-                c.ID_Conductor = ?
+                ID_Conductor = '".$this->ID_Conductor."'
             LIMIT
                 0,1";
                 // prepare query statement
