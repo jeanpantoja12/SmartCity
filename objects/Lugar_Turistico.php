@@ -65,7 +65,7 @@ class Lugarturistico{
     function Consulta(){
         // query to read single record
     $query = "SELECT
-                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito,d.DIS_Nombre as Distrito,l.LT_Hora_Inicio,l.LT_Hora_Fin, l.LT_Latitud, l.LT_Longitud
+                l.ID_Lugar_Turistico, l.LT_Nombre, l.LT_Descripcion, l.LT_URL_Map, l.ID_Distrito, d.DIS_Nombre as Distrito, l.LT_Hora_Inicio, l.LT_Hora_Fin, l.LT_Latitud, l.LT_Longitud
             FROM
                 " . $this->table_name . " l
                 LEFT JOIN
