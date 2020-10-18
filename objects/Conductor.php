@@ -166,7 +166,7 @@ class Conductor{
     $stmt = $this->conn->prepare( $query );
   
     // bind id of product to be updated
-    $stmt->bindParam(1, $this->VEH_Placa);
+    $stmt->bindParam(1, $this->ID_Conductor);
   
     // execute query
     $stmt->execute();
