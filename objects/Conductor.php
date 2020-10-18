@@ -22,6 +22,8 @@ class Conductor{
     public $CON_Fotografia_Licencia;
     public $CON_Contrasena;
     public $CON_Email;
+    public $Nombre_Conductor;
+    public $Nombre_Empresa;
 
     // constructor with $db as database connection
     public function __construct($db){
