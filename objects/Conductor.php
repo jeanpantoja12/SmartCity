@@ -148,11 +148,50 @@ class Conductor{
   
   
   
+  function Consulta(){
+        // query to read single record
+    $query = "SELECT
+                c.ID_Conductor, CONCAT(c.CON_Nombre,' ',c.CON_Apellidos) as Nombre_Conductor, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia, c.CON_Fotografia_Perfil, e.EMT_Nombre as Nombre_Empresa, c.CON_Latitud, c.CON_Longitud, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
+            FROM
+                " . $this->table_name . " c
+                LEFT JOIN
+                    Tbl_Empresa_Trans e
+                        ON c.ID_Empresa_Transp = e.ID_Empresa_Transp
+                
+            WHERE
+                c.ID_Conductor = ?
+            LIMIT
+                0,1";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->VEH_Placa);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Vehiculo = $row['ID_Conductor'];
+    $this->Nombre_Conductor = $row['Nombre_Conductor'];
+    $this->CON_Telefono = $row['CON_Direccion'];
+    $this->CON_Licencia = $row['CON_Licencia'];
+    $this->CON_Fotografia_Perfil = $row['CON_Fotografia_Perfil'];
+    $this->Nombre_Empresa = $row['Nombre_Empresa'];
+    $this->CON_Latitud = $row['CON_Latitud'];
+    $this->CON_Longitud = $row['CON_Longitud'];
+    $this->CON_FCM = $row['CON_FCM'];
+    $this->CON_Fotografia_Licencia = $row['CON_Fotografia_Licencia'];
+    $this->CON_Email = $row['CON_Email'];
+    }
+
   
   
   
-  
-  
+ 
 
 }
 ?>
