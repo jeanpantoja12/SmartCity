@@ -193,6 +193,24 @@ class Conductor{
   
   
   
+   function delete(){
+  
+
+    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Conductor = ?";
+  
+    $stmt = $this->conn->prepare($query);
+  
+    $this->ID_Conductor=htmlspecialchars(strip_tags($this->ID_Conductor));
+  
+   $stmt->bindParam(1, $this->ID_Conductor);
+  
+    if($stmt->execute()){
+        return true;
+    }
+  
+ }
+  
+  
  
 
 }
