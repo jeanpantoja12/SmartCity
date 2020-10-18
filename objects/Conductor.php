@@ -99,7 +99,7 @@ class Conductor{
             CON_Status = :CON_Status,
             CON_FCM = :CON_FCM,
             CON_Fotografia_Licencia = :CON_Fotografia_Licencia,
-            CON_Email = :CON_Email,
+            CON_Email = :CON_Email
             WHERE
                 ID_Conductor = :ID_Conductor";
 
