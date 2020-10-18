@@ -147,7 +147,22 @@ class Conductor{
 }
   
   
+function read(){
   
+    // select all query
+    $query = "SELECT
+                c.ID_Conductor, c.CON_Nombre, c.CON_Apellidos, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia,c.CON_Fotografia_Perfil, c.ID_Empresa_Transp, c.CON_Latitud, c.CON_Longitud, c.CON_Status, c.CON_FCM, c.CON_Fotografia_Licencia
+            FROM
+                " . $this->table_name . " c";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+  
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}    
   
   
   function Consulta(){
