@@ -43,7 +43,7 @@ if(
     if($parques->create()){
   
         // set response code - 201 created
-        http_response_code(200);
+        http_response_code(201);
   
         // tell the user
         echo json_encode(array("message" => "Parque creado correctamente."));
