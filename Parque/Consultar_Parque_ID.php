@@ -30,10 +30,7 @@ if($parque->ID_Parque!=null){
         "PQ_Descripcion" => $parque->PQ_Descripcion,
         "ID_Distrito" => $parque->ID_Distrito,
         "Distrito" => $parque->Distrito,
-        "PQ_Direccion" => $parque->PQ_Direccion,
-        "PQ_Nivel_humedad" => $parque->PQ_Nivel_humedad,
-        "PQ_Nivel_Ruido" => $parque->PQ_Nivel_Ruido,
-        "PQ_Nivel_Radiacion" => $parque->PQ_Nivel_Radiacion
+        "PQ_Direccion" => $parque->PQ_Direccion
     );
   
     // set response code - 200 OK
