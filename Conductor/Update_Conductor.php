@@ -32,7 +32,6 @@ if(
 	$conductor->CON_Telefono = $data->CON_Telefono;
 	$conductor->CON_Direccion = $data->CON_Direccion;
 	$conductor->CON_Licencia = $data->CON_Licencia;
-	$conductor->CON_Fotografia_Perfil = $data->CON_Fotografia_Perfil;
 	$conductor->ID_Empresa_Transp = $data->ID_Empresa_Transp;
 	$conductor->CON_Latitud = $data->CON_Latitud;
 	$conductor->CON_Longitud = $data->CON_Longitud;
