@@ -47,10 +47,7 @@ if($num>0){
             "ID_Distrito" => $ID_Distrito,
             "Distrito" => $Distrito,
             "PQ_Direccion" => $PQ_Direccion,
-            "PQ_Direccion" => $PQ_Direccion,
-            "PQ_Nivel_humedad" => $PQ_Nivel_humedad,
-            "PQ_Nivel_Radiacion" => $PQ_Nivel_Radiacion,
-            "PQ_Nivel_Ruido" => $PQ_Nivel_Ruido
+            "PQ_Direccion" => $PQ_Direccion
         );
   
         array_push($parque_arr["records"], $parque_item);
