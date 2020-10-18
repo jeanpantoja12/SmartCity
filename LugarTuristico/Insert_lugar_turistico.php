@@ -27,7 +27,9 @@ if(
     !empty($data->LT_URL_Map) &&
     !empty($data->ID_Distrito) &&
     !empty($data->LT_Hora_Inicio) &&
-    !empty($data->LT_Hora_Fin)
+    !empty($data->LT_Hora_Fin) &&
+    !empty($data->LT_Latitud) &&
+    !empty($data->LT_Longitud)
 ){
   
     // set product property values
@@ -37,6 +39,8 @@ if(
     $lugart->ID_Distrito = $data->ID_Distrito;
     $lugart->LT_Hora_Inicio = $data->LT_Hora_Inicio;
     $lugart->LT_Hora_Fin = $data->LT_Hora_Fin;
+      $lugart->LT_Latitud = $data->LT_Latitud;
+    $lugart->LT_Longitud = $data->LT_Longitud;
   
     // create the product
     if($lugart->create()){
