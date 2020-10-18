@@ -13,7 +13,6 @@ class Conductor{
     public $CON_Telefono;
     public $CON_Direccion;
     public $CON_Licencia;
-    public $CON_Fotografia_Perfil;
     public $ID_Empresa_Transp;
     public $CON_Latitud;
     public $CON_Longitud;
@@ -34,7 +33,7 @@ class Conductor{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET CON_Nombre=:CON_Nombre, CON_Apellidos=:CON_Apellidos, CON_Telefono=:CON_Telefono, CON_Direccion=:CON_Direccion, CON_Licencia=:CON_Licencia, CON_Fotografia_Perfil=:CON_Fotografia_Perfil, ID_Empresa_Transp=:ID_Empresa_Transp, CON_Latitud=:CON_Latitud, CON_Longitud=:CON_Longitud, CON_Status=:CON_Status, CON_FCM=:CON_FCM, CON_Fotografia_Licencia=:CON_Fotografia_Licencia, CON_Contrasena=:CON_Contrasena, CON_Email=:CON_Email";
+            SET CON_Nombre=:CON_Nombre, CON_Apellidos=:CON_Apellidos, CON_Telefono=:CON_Telefono, CON_Direccion=:CON_Direccion, CON_Licencia=:CON_Licencia, ID_Empresa_Transp=:ID_Empresa_Transp, CON_Latitud=:CON_Latitud, CON_Longitud=:CON_Longitud, CON_Status=:CON_Status, CON_FCM=:CON_FCM, CON_Fotografia_Licencia=:CON_Fotografia_Licencia, CON_Contrasena=:CON_Contrasena, CON_Email=:CON_Email";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -45,7 +44,6 @@ class Conductor{
     $this->CON_Telefono=htmlspecialchars(strip_tags($this->CON_Telefono));
     $this->CON_Direccion=htmlspecialchars(strip_tags($this->CON_Direccion));
     $this->CON_Licencia=htmlspecialchars(strip_tags($this->CON_Licencia));
-    $this->CON_Fotografia_Perfil=htmlspecialchars(strip_tags($this->CON_Fotografia_Perfil));
     $this->ID_Empresa_Transp=htmlspecialchars(strip_tags($this->ID_Empresa_Transp));
     $this->CON_Latitud=htmlspecialchars(strip_tags($this->CON_Latitud));
     $this->CON_Longitud=htmlspecialchars(strip_tags($this->CON_Longitud));
@@ -61,7 +59,6 @@ class Conductor{
     $stmt->bindParam(":CON_Telefono", $this->CON_Telefono);
     $stmt->bindParam(":CON_Direccion", $this->CON_Direccion);
     $stmt->bindParam(":CON_Licencia", $this->CON_Licencia);
-    $stmt->bindParam(":CON_Fotografia_Perfil", $this->CON_Fotografia_Perfil);
     $stmt->bindParam(":ID_Empresa_Transp", $this->ID_Empresa_Transp);
     $stmt->bindParam(":CON_Latitud", $this->CON_Latitud);
     $stmt->bindParam(":CON_Longitud", $this->CON_Longitud);
@@ -94,7 +91,6 @@ class Conductor{
             CON_Telefono = :CON_Telefono,
             CON_Direccion = :CON_Direccion,
             CON_Licencia = :CON_Licencia, 
-            CON_Fotografia_Perfil = :CON_Fotografia_Perfil,
             ID_Empresa_Transp = :ID_Empresa_Transp,
             CON_Latitud = :CON_Latitud,
             CON_Longitud = :CON_Longitud,
@@ -115,7 +111,6 @@ class Conductor{
     $this->CON_Telefono=htmlspecialchars(strip_tags($this->CON_Telefono));
     $this->CON_Direccion=htmlspecialchars(strip_tags($this->CON_Direccion));
     $this->CON_Licencia=htmlspecialchars(strip_tags($this->CON_Licencia));
-    $this->CON_Fotografia_Perfil=htmlspecialchars(strip_tags($this->CON_Fotografia_Perfil));
     $this->ID_Empresa_Transp=htmlspecialchars(strip_tags($this->ID_Empresa_Transp));
     $this->CON_Latitud=htmlspecialchars(strip_tags($this->CON_Latitud));
     $this->CON_Longitud=htmlspecialchars(strip_tags($this->CON_Longitud));
@@ -131,7 +126,6 @@ class Conductor{
     $stmt->bindParam(":CON_Telefono", $this->CON_Telefono);
     $stmt->bindParam(":CON_Direccion", $this->CON_Direccion);
     $stmt->bindParam(":CON_Licencia", $this->CON_Licencia);
-    $stmt->bindParam(":CON_Fotografia_Perfil", $this->CON_Fotografia_Perfil);
     $stmt->bindParam(":ID_Empresa_Transp", $this->ID_Empresa_Transp);
     $stmt->bindParam(":CON_Latitud", $this->CON_Latitud);
     $stmt->bindParam(":CON_Longitud", $this->CON_Longitud);
@@ -153,7 +147,7 @@ function read(){
   
     // select all query
     $query = "SELECT
-                c.ID_Conductor, c.CON_Nombre, c.CON_Apellidos, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia,c.CON_Fotografia_Perfil, c.ID_Empresa_Transp, c.CON_Latitud, c.CON_Longitud, c.CON_Status, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
+                c.ID_Conductor, c.CON_Nombre, c.CON_Apellidos, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia, c.ID_Empresa_Transp, c.CON_Latitud, c.CON_Longitud, c.CON_Status, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
             FROM
                 " . $this->table_name . " c";
   
@@ -170,7 +164,7 @@ function read(){
   function Consulta(){
         // query to read single record
     $query = "SELECT
-                c.ID_Conductor, CONCAT(c.CON_Nombre,' ',c.CON_Apellidos) as Nombre_Conductor, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia, c.CON_Fotografia_Perfil, e.EMT_Nombre as Nombre_Empresa, c.CON_Latitud, c.CON_Longitud, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
+                c.ID_Conductor, CONCAT(c.CON_Nombre,' ',c.CON_Apellidos) as Nombre_Conductor, c.CON_Telefono, c.CON_Direccion, c.CON_Licencia, e.EMT_Nombre as Nombre_Empresa, c.CON_Latitud, c.CON_Longitud, c.CON_FCM, c.CON_Fotografia_Licencia, c.CON_Email
             FROM
                 " . $this->table_name . " c
                 LEFT JOIN
@@ -198,7 +192,6 @@ function read(){
     $this->Nombre_Conductor = $row['Nombre_Conductor'];
     $this->CON_Telefono = $row['CON_Direccion'];
     $this->CON_Licencia = $row['CON_Licencia'];
-    $this->CON_Fotografia_Perfil = $row['CON_Fotografia_Perfil'];
     $this->Nombre_Empresa = $row['Nombre_Empresa'];
     $this->CON_Latitud = $row['CON_Latitud'];
     $this->CON_Longitud = $row['CON_Longitud'];
