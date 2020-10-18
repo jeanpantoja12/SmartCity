@@ -16,54 +16,57 @@ $database = new Database();
 $db = $database->getConnection();
   
 $conductor = new Conductor($db);
-  
-// get posted data
-$data = json_decode(file_get_contents("php://input"));
+
+ if(is_uploaded_file($_FILES["conductor_image"]["tmp_name"])){
+     $tmp_file = $_FILES["conductor_image"]["tmp_name"];
+     $img_name = $_FILES["conductor_image"]["name"];
+     $upload_dir = "../images/mov_urbana/".$img_name;
+     $conductor->CON_Fotografia_Licencia = $upload_dir;
+ }
   
 // make sure data is not empty
 if( 
-    !empty($data->CON_Nombre) &&
-    !empty($data->CON_Apellidos) &&
-    !empty($data->CON_Telefono) &&
-    !empty($data->CON_Direccion) &&
-    !empty($data->CON_Licencia) &&
-    !empty($data->ID_Empresa_Transp) &&
-    !empty($data->CON_Latitud) &&
-    !empty($data->CON_Longitud) &&
-    !empty($data->CON_Status) &&
-    !empty($data->CON_FCM) &&
-    !empty($data->CON_Fotografia_Licencia) &&
-    !empty($data->CON_Email) &&
-    !empty($data->CON_Contrasena)
-){
+    !empty($_POST["CON_Nombre"]) &&
+    !empty($_POST["CON_Apellidos"]) &&
+    !empty($_POST["CON_Telefono"]) &&
+    !empty($_POST["CON_Direccion"]) &&
+    !empty($_POST["CON_Licencia"]) &&
+    !empty($_POST["ID_Empresa_Transp"]) &&
+    !empty($_POST["CON_Latitud"]) &&
+    !empty($_POST["CON_Longitud"]) &&
+    !empty($_POST["CON_Status"]) &&
+    !empty($_POST["CON_FCM"]) &&
+    !empty($_POST["CON_Email"]) &&
+    !empty($_POST["CON_Contrasena"])
+)
+    {
   
     // set product property values
-    $conductor->CON_Nombre = $data->CON_Nombre;
-    $conductor->CON_Apellidos = $data->CON_Apellidos;
-    $conductor->CON_Telefono = $data->CON_Telefono;
-    $conductor->CON_Direccion = $data->CON_Direccion;
-    $conductor->CON_Licencia = $data->CON_Licencia;
-    $conductor->ID_Empresa_Transp = $data->ID_Empresa_Transp;
-    $conductor->CON_Latitud = $data->CON_Latitud;
-    $conductor->CON_Longitud = $data->CON_Longitud;
-    $conductor->CON_Status = $data->CON_Status;
-    $conductor->CON_FCM = $data->CON_FCM;
-    $conductor->CON_Fotografia_Licencia = $data->CON_Fotografia_Licencia;
-    $conductor->CON_Email = $data->CON_Email;
-    $conductor->CON_Contrasena = $data->CON_Contrasena;
+    $conductor->CON_Nombre = $_POST["CON_Nombre"];
+    $conductor->CON_Apellidos = $_POST["CON_Apellidos"];
+    $conductor->CON_Telefono = $_POST["CON_Telefono"];
+    $conductor->CON_Direccion = $_POST["CON_Direccion"];
+    $conductor->CON_Licencia = $_POST["CON_Licencia"];
+    $conductor->ID_Empresa_Transp = $_POST["ID_Empresa_Transp"];
+    $conductor->CON_Latitud = $_POST["CON_Latitud"];
+    $conductor->CON_Longitud = $_POST["CON_Longitud"];
+    $conductor->CON_Status = $_POST["CON_Status"];
+    $conductor->CON_FCM = $_POST["CON_FCM"];
+    $conductor->CON_Email = $_POST["CON_Email"];
+    $conductor->CON_Contrasena = $_POST["CON_Contrasena"];
     // create the product
-    if($conductor->create()){
+    if($conductor->create() && move_uploaded_file($tmp_file, $upload_dir)){
   
         // set response code - 201 created
         http_response_code(201);
   
         // tell the obra
-        echo json_encode(array("message" => "Conductor creado correctamente."));
+        echo json_encode(array("message" => "Conductor creado correctamente.","status" => "Imagen subida"));
     }
   
     // if unable to create the product, tell the obra
     else{
-  
+        
         // set response code - 503 service unavailable
         http_response_code(503);
   
