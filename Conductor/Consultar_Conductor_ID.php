@@ -35,11 +35,11 @@ if(!empty($ID_Conductor)){
         $user_arr=array(
             "status" => true,
             "ID_Conductor" => $row['ID_Conductor'],
-            "Nombre_Conductor" => $row['Nombre_Conductor'],
+            "CON_Nombre" => $row['CON_Nombre'],
+            "CON_Apellidos" => $row['CON_Apellidos'],
             "CON_Telefono" => $row['CON_Telefono'],
             "CON_Direccion" => $row['CON_Direccion'],
             "CON_Licencia" => $row['CON_Licencia'],
-            "Nombre_Empresa" => $row['Nombre_Empresa'],
             "CON_Latitud" => $row['CON_Latitud'],
             "CON_Longitud" => $row['CON_Longitud'],
             "CON_FCM" => $row['CON_FCM'],
