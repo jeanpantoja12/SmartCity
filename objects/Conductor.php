@@ -178,26 +178,12 @@ function read(){
                 // prepare query statement
     $stmt = $this->conn->prepare( $query );
   
-    // bind id of product to be updated
-    $stmt->bindParam(1, $this->ID_Conductor);
   
+    
     // execute query
-    $stmt->execute();
-  
-    // get retrieved row
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-    // set values to object properties
-    $this->ID_Conductor = $row['ID_Conductor'];
-    $this->Nombre_Conductor = $row['Nombre_Conductor'];
-    $this->CON_Telefono = $row['CON_Direccion'];
-    $this->CON_Licencia = $row['CON_Licencia'];
-    $this->Nombre_Empresa = $row['Nombre_Empresa'];
-    $this->CON_Latitud = $row['CON_Latitud'];
-    $this->CON_Longitud = $row['CON_Longitud'];
-    $this->CON_FCM = $row['CON_FCM'];
-    $this->CON_Fotografia_Licencia = $row['CON_Fotografia_Licencia'];
-    $this->CON_Email = $row['CON_Email'];
+        $stmt->execute();
+        return $stmt;
+    }
     }
 
   
