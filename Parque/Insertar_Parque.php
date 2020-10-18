@@ -26,10 +26,7 @@ if(
     !empty($data->PQ_Nombre) &&
     !empty($data->PQ_Descripcion) &&
     !empty($data->ID_Distrito) &&
-    !empty($data->PQ_Direccion) &&
-    !empty($data->PQ_Nivel_humedad) &&
-    !empty($data->PQ_Nivel_Radiacion) &&
-    !empty($data->PQ_Nivel_Ruido) 
+    !empty($data->PQ_Direccion) 
  
 ){
   
@@ -39,9 +36,7 @@ if(
     $parques->PQ_Descripcion = $data->PQ_Descripcion;
     $parques->ID_Distrito = $data->ID_Distrito;
     $parques->PQ_Direccion = $data->PQ_Direccion;
-    $parques->PQ_Nivel_humedad = $data->PQ_Nivel_humedad;
-    $parques->PQ_Nivel_Radiacion = $data->PQ_Nivel_Radiacion;
-    $parques->PQ_Nivel_Ruido = $data->PQ_Nivel_Ruido;
+
 
 
     // create the product
