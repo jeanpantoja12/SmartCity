@@ -52,7 +52,7 @@ if(!empty($ID_Conductor)){
   }else{
         $user_arr=array(
             "status" => false,
-            "message" => "Usuario Incorrecto",
+            "message" => "Conductor Incorrecto",
         );
         http_response_code(404);
         
