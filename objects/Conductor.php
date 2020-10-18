@@ -175,7 +175,7 @@ class Conductor{
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
   
     // set values to object properties
-    $this->ID_Vehiculo = $row['ID_Conductor'];
+    $this->ID_Conductor = $row['ID_Conductor'];
     $this->Nombre_Conductor = $row['Nombre_Conductor'];
     $this->CON_Telefono = $row['CON_Direccion'];
     $this->CON_Licencia = $row['CON_Licencia'];
