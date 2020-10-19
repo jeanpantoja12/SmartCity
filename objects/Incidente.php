@@ -110,7 +110,7 @@ class Incidente{
       $stmt = $this->conn->prepare($query);
   
     // sanitize
-    $keywords=htmlspecialchars(strip_tags($keywords));
+    $keywords=strip_tags($keywords);
     $keywords = "%{$keywords}%";
   
     // bind
