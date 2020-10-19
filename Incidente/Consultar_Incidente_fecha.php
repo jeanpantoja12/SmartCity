@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 
-// include database and object files
+include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../objects/Incidente.php';
 
@@ -14,31 +14,48 @@ include_once '../objects/Incidente.php';
 $database = new Database();
 $db = $database->getConnection();
   
-// prepare product object
-// prepare product object
+// prepare incidente object
 $incidente = new Incidente($db);
+  
 // get keywords
-$incidente=isset($_GET["ID_Vehiculo"]) ? $_GET["ID_Vehiculo"] : die();
-// set ID property of record to read
-$incidente->Consultafecha();
+$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
   
-// read the details of product to be edited
+// query products
+$stmt = $incidente->Consultafecha($keywords);
+$num = $stmt->rowCount();
   
-if($incidente->ID_Incidente!=null){
-    // create array
-    $incidente_arr = array(
-        "ID_Vehiculo" => $incidente->ID_Vehiculo,
-            "ID_Usuario" => $incidente->ID_Usuario,
-            "ind_Descripcion" => $incidente->ind_Descripcion,
-            "ind_Fotografia" => $incidente->ind_Fotografia,
-            "ind_Fecha_Incidente" => $incidente->ind_Fecha_Incidente,
-            "ID_Tipo_Ind" => $incidente->ID_Tipo_Ind,
-            "ID_Incidente" => $incidente->ID_Incidente
-    );
+// check if more than 0 record found
+if($num>0){
+  
+    // products array
+    $incidente_arr=array();
+    $incidente_arr["records"]=array();
+  
+    // retrieve our table contents
+    // fetch() is faster than fetchAll()
+    // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        // extract row
+        // this will make $row['name'] to
+        // just $name only
+        extract($row);
+  
+        $incidente_item=array(
+            "ID_Incidente" => $ID_Incidente,
+            "ID_Vehiculo" => $ID_Vehiculo,
+            "ID_Usuario" => $ID_Usuario,
+            "ind_Descripcion" => $ind_Descripcion,
+            "ind_Fecha_Incidente" => $ind_Fecha_Incidente,
+            "ID_Tipo_Ind" => $ID_Tipo_Ind
+        );
+  
+        array_push($incidente_arr["records"], $incidente_item);
+    }
+  
     // set response code - 200 OK
     http_response_code(200);
   
-    // make it json format
+    // show products data
     echo json_encode($incidente_arr);
 }
   
@@ -46,10 +63,9 @@ else{
     // set response code - 404 Not found
     http_response_code(404);
   
-    // tell the user product does not exist
+    // tell the user no products found
     echo json_encode(
-        array("message" => "Incidente no existe.")
+        array("message" => "Ningun incidente encontrado.")
     );
 }
-
 ?>
