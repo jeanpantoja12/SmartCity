@@ -88,7 +88,7 @@ class Incidente{
     $this->ind_Fotografia = $row['ind_Fotografia'];
     $this->ind_Fecha_Incidente = $row['ind_Fecha_Incidente'];
     }
-   function Consultafecha($keywords){
+       function Consultafecha(){
         // query to read single record
     $query = "SELECT
                 i.ID_Incidente, i.ID_Vehiculo, i.ID_Usuario, i.ind_Descripcion, i.ind_Fotografia, i.ind_Fecha_Incidente
@@ -109,15 +109,21 @@ class Incidente{
     $stmt = $this->conn->prepare($query);
   
     // bind id of product to be updated
-    $keywords=htmlspecialchars(strip_tags($keywords));
-    $keywords = "%{$keywords}%";
-    $stmt->bindParam(1, $keywords);
+    $stmt->bindParam(1, $this->ID_Vehiculo);
   
     // execute query
     $stmt->execute();
   
     // get retrieved row
-    return $stmt
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Incidente = $row['ID_Incidente'];
+    $this->ID_Vehiculo = $row['ID_Vehiculo'];
+    $this->ID_Usuario = $row['ID_Usuario'];
+    $this->ind_Descripcion = $row['ind_Descripcion'];
+    $this->ind_Fotografia = $row['ind_Fotografia'];
+    $this->ind_Fecha_Incidente = $row['ind_Fecha_Incidente'];
 }
   
 }
