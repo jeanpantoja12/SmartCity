@@ -101,7 +101,7 @@ class Incidente{
                     Tbl_Usuario u
                         ON i.ID_Usuario = u.ID_Usuario
             WHERE
-                i.ID_Vehiculo = ?
+                i.ID_Vehiculo LIKE ?
             ORDER BY
                 i.ind_Fecha_Incidente DESC";
             
