@@ -88,7 +88,7 @@ class Incidente{
     $this->ind_Fotografia = $row['ind_Fotografia'];
     $this->ind_Fecha_Incidente = $row['ind_Fecha_Incidente'];
     }
-   function Consultafecha(){
+   function Consultafecha($keywords){
         // query to read single record
     $query = "SELECT
                 i.ID_Incidente, i.ID_Vehiculo, i.ID_Usuario, i.ind_Descripcion, i.ind_Fotografia, i.ind_Fecha_Incidente
@@ -119,5 +119,6 @@ class Incidente{
     // get retrieved row
     return $stmt
 }
-
+  
+}
 ?>
