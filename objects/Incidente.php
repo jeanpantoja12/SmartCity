@@ -111,7 +111,7 @@ class Incidente{
     // bind id of product to be updated
     $keywords=htmlspecialchars(strip_tags($keywords));
     $keywords = "%{$keywords}%";
-    $stmt->bindParam(1, $this->$keywords);
+    $stmt->bindParam(1, $keywords);
   
     // execute query
     $stmt->execute();
