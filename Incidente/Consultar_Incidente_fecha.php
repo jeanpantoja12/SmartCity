@@ -19,7 +19,7 @@ $incidente = new Incidente($db);
 // get keywords
 $keywords=isset($_GET["s"]) ? $_GET["s"] : "";
 // set ID property of record to read
-$stmt = $incidente->search($keywords);
+$stmt = $incidente->Consultafecha($keywords);
   
 // read the details of product to be edited
 $num = $stmt->rowCount();
