@@ -104,7 +104,7 @@ class Incidente{
       $stmt = $this->conn->prepare($query);
   
     // sanitize
-    $keywords=strip_tags($keywords);
+    $keywords=htmlspecialchars(strip_tags($keywords));
     $keywords = "%{$keywords}%";
   
     // bind
