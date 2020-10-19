@@ -16,22 +16,31 @@ $db = $database->getConnection();
   
 // prepare product object
 $incidente = new Incidente($db);
+// get keywords
+$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
 // set ID property of record to read
-$incidente->ID_Incidente = isset($_GET['ID_Incidente']) ? $_GET['ID_Incidente'] : die();
+$stmt = $incidente->search($keywords);
   
 // read the details of product to be edited
-$incidente->Consulta();
+$num = $stmt->rowCount();
   
-if($incidente->ID_Incidente!=null){
+if($num>0){
     // create array
-    $incidente_arr = array(
-        "ID_Vehiculo" =>  $incidente->ID_Vehiculo,
+    $incidente_arr = array();
+    $incidente_arr["records"]=array();
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        extract($row);
+        $incidente_item= array("ID_Vehiculo" =>  $incidente->ID_Vehiculo,
         "ID_Usuario" => $incidente->ID_Usuario,
         "ind_Descripcion" => $incidente->ind_Descripcion,
         "ind_Fotografia" => $incidente->ind_Fotografia,
         "ind_Fecha_Incidente" => $incidente->ind_Fecha_Incidente,
         "ID_Incidente" => $incidente->ID_Incidente
     );
+        array_push($incidente_arr["records"], $incidente_item);
+    }
+        
+    
   
     // set response code - 200 OK
     http_response_code(200);
@@ -47,6 +56,5 @@ else{
     // tell the user product does not exist
     echo json_encode(array("message" => "Incidente no existe."));
 }
-
 
 ?>
