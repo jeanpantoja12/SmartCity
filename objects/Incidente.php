@@ -92,7 +92,7 @@ class Incidente{
       function Consultafecha($keywords){
         // query to read single record
     $query = "SELECT
-                i.ID_Incidente, i.ID_Vehiculo, i.ID_Usuario, i.ind_Descripcion, i.ind_Fotografia, i.ind_Fecha_Incidente
+               i.ID_Incidente, v.ID_Vehiculo, u.ID_Usuario, i.ind_Descripcion, i.ind_Fotografia, i.ind_Fecha_Incidente
             FROM
                 " . $this->table_name . " i
                 LEFT JOIN
