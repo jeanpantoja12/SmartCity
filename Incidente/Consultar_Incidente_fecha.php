@@ -32,6 +32,7 @@ if($incidente->name!=null){
             "ind_Descripcion" => $incidente->ind_Descripcion,
             "ind_Fotografia" => $incidente->ind_Fotografia,
             "ind_Fecha_Incidente" => $incidente->ind_Fecha_Incidente,
+            "ID_Tipo_Ind" => $incidente->ID_Tipo_Ind,
             "ID_Incidente" => $incidente->ID_Incidente
     );
         
