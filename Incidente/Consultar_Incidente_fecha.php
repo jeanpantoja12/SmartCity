@@ -24,7 +24,7 @@ $incidente->Consultafecha();
   
 // read the details of product to be edited
   
-if($incidente->name!=null){
+if($incidente->ID_Incidente!=null){
     // create array
     $incidente_arr = array(
         "ID_Vehiculo" => $incidente->ID_Vehiculo,
