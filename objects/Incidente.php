@@ -106,7 +106,7 @@ class Incidente{
                 i.ind_Fecha_Incidente DESC";
             
                 // prepare query statement
-    $stmt = $this->conn->prepare( $query );
+    $stmt = $this->conn->prepare($query);
   
     // bind id of product to be updated
     $keywords=htmlspecialchars(strip_tags($keywords));
