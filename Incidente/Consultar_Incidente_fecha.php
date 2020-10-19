@@ -35,11 +35,6 @@ if($incidente->name!=null){
             "ID_Tipo_Ind" => $incidente->ID_Tipo_Ind,
             "ID_Incidente" => $incidente->ID_Incidente
     );
-        
-    }
-        
-    
-  
     // set response code - 200 OK
     http_response_code(200);
   
