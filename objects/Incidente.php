@@ -14,6 +14,7 @@ class Incidente{
     public $ind_Fotografia;
     public $ind_Fecha_Incidente;
     public $ID_Incidente;   
+    public $ID_Tipo_Ind;   
   
     // constructor with $db as database connection
     public function __construct($db){
@@ -101,7 +102,7 @@ class Incidente{
                     Tbl_Usuario u
                         ON i.ID_Usuario = u.ID_Usuario
             WHERE
-                i.ID_Vehiculo LIKE ?
+                i.ID_Vehiculo = ?
             ORDER BY
                 i.ind_Fecha_Incidente DESC";
             
