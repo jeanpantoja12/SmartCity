@@ -31,12 +31,12 @@ if($num>0){
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $incidente_item= array(
-        "ID_Vehiculo" =>  $incidente->ID_Vehiculo,
-        "ID_Usuario" => $incidente->ID_Usuario,
-        "ind_Descripcion" => $incidente->ind_Descripcion,
-        "ind_Fotografia" => $incidente->ind_Fotografia,
-        "ind_Fecha_Incidente" => $incidente->ind_Fecha_Incidente,
-        "ID_Incidente" => $incidente->ID_Incidente
+            "ID_Vehiculo" => $ID_Vehiculo,
+            "ID_Usuario" => $ID_Usuario,
+            "ind_Descripcion" => $ind_Descripcion,
+            "ind_Fotografia" => $ind_Fotografia,
+            "ind_Fecha_Incidente" => $ind_Fecha_Incidente,
+            "ID_Incidente" => $ID_Incidente
     );
         array_push($incidente_arr["records"], $incidente_item);
     }
