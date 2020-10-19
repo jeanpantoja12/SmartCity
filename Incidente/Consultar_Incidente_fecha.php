@@ -30,7 +30,8 @@ if($num>0){
     $incidente_arr["records"]=array();
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $incidente_item= array("ID_Vehiculo" =>  $incidente->ID_Vehiculo,
+        $incidente_item= array(
+        "ID_Vehiculo" =>  $incidente->ID_Vehiculo,
         "ID_Usuario" => $incidente->ID_Usuario,
         "ind_Descripcion" => $incidente->ind_Descripcion,
         "ind_Fotografia" => $incidente->ind_Fotografia,
@@ -54,7 +55,9 @@ else{
     http_response_code(404);
   
     // tell the user product does not exist
-    echo json_encode(array("message" => "Incidente no existe."));
+    echo json_encode(
+      array("message" => "Incidente no existe.")
+    );
 }
 
 ?>
