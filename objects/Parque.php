@@ -13,6 +13,8 @@ class Parques{
     public $ID_Distrito;
     public $Distrito;
     public $PQ_Direccion;
+    public $PQ_Latitud;
+    public $PQ_Longitud;
 
 
     // constructor with $db as database connection
@@ -24,7 +26,7 @@ class Parques{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET PQ_Nombre=:PQ_Nombre, PQ_Descripcion=:PQ_Descripcion, ID_Distrito=:ID_Distrito, PQ_Direccion=:PQ_Direccion";
+            SET PQ_Nombre=:PQ_Nombre, PQ_Descripcion=:PQ_Descripcion, ID_Distrito=:ID_Distrito, PQ_Direccion=:PQ_Direccion, PQ_Latitud=:PQ_Latitud, PQ_Longitud=:PQ_Longitud";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -34,6 +36,8 @@ class Parques{
     $this->PQ_Descripcion=htmlspecialchars(strip_tags($this->PQ_Descripcion));
     $this->ID_Distrito=htmlspecialchars(strip_tags($this->ID_Distrito));
     $this->PQ_Direccion=htmlspecialchars(strip_tags($this->PQ_Direccion));
+    $this->PQ_Latitud=htmlspecialchars(strip_tags($this->PQ_Latitud));
+    $this->PQ_Longitud=htmlspecialchars(strip_tags($this->PQ_Longitud));
 
     // bind values
 
@@ -41,6 +45,8 @@ class Parques{
     $stmt->bindParam(":PQ_Descripcion", $this->PQ_Descripcion);
     $stmt->bindParam(":ID_Distrito", $this->ID_Distrito);
     $stmt->bindParam(":PQ_Direccion", $this->PQ_Direccion);
+    $stmt->bindParam(":PQ_Latitud", $this->PQ_Latitud);
+    $stmt->bindParam(":PQ_Longitud", $this->PQ_Longitud);
 
    
 
@@ -55,7 +61,7 @@ class Parques{
 function Consulta(){
         // query to read single record
     $query = "SELECT
-                p.ID_Parque, p.PQ_Nombre, p.PQ_Descripcion, p.ID_Distrito,d.DIS_Nombre as Distrito,p.PQ_Direccion
+                p.ID_Parque, p.PQ_Nombre, p.PQ_Descripcion, p.ID_Distrito, d.DIS_Nombre as Distrito, p.PQ_Direccion, p.PQ_Latitud, p.PQ_Longitud
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
@@ -84,6 +90,8 @@ function Consulta(){
     $this->ID_Distrito = $row['ID_Distrito'];
     $this->Distrito = $row['Distrito'];
     $this->PQ_Direccion = $row['PQ_Direccion'];
+    $this->PQ_Latitud = $row['PQ_Latitud'];
+    $this->PQ_Longitud = $row['PQ_Longitud'];
  
     }
   
@@ -91,7 +99,7 @@ function Consulta(){
   
     // select all query
     $query = "SELECT
-                p.ID_Parque, p.PQ_Nombre, p.PQ_Descripcion, p.ID_Distrito,d.DIS_Nombre as Distrito,p.PQ_Direccion
+                p.ID_Parque, p.PQ_Nombre, p.PQ_Descripcion, p.ID_Distrito, d.DIS_Nombre as Distrito, p.PQ_Direccion, p.PQ_Latitud, p.PQ_Longitud
             FROM
                 " . $this->table_name . " p
                 LEFT JOIN
