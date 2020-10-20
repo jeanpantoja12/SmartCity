@@ -28,17 +28,7 @@ class Video_LT{
   
   function ConsultaIdLT(){
         // query to read single record
-    $query = "SELECT
-                v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre, v.VL_Descripcion, v.VL_URL
-            FROM
-                " . $this->table_name . " v
-                INNER JOIN
-                    Tbl_Lugar_Turistico l
-                        ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
-            WHERE
-                v.ID_Lugar_Turistico = ?
-            LIMIT
-                0,1";
+    $query = "SELECT v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre, v.VL_Descripcion, v.VL_URL FROM" . $this->table_name . " v INNER JOIN Tbl_Lugar_Turistico l ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico WHERE v.ID_Lugar_Turistico = ? LIMIT 0,1";
                 // prepare query statement
     $stmt = $this->conn->prepare( $query );
   
