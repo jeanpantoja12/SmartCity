@@ -29,7 +29,6 @@ if(
     !empty($data->RES_URL_Map) &&
     !empty($data->RES_Pagina_Web) &&
     !empty($data->RES_Telefono) &&
-    !empty($data->US_Contrasena) &&
     !empty($data->RES_Facebook)
 ){
   
@@ -41,7 +40,6 @@ if(
     $user->RES_URL_Map = $data->RES_URL_Map;
     $user->RES_Pagina_Web = $data->RES_Pagina_Web;
     $user->RES_Telefono = $data->RES_Telefono;
-    $user->US_Contrasena = $data->US_Contrasena;
     $user->RES_Facebook = $data->RES_Facebook;
     // create the product
     if($user->create()){
