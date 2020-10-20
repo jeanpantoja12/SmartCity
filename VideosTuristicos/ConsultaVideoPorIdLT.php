@@ -9,7 +9,7 @@ header('Content-Type: application/json');
 // include database and object files
 include_once '../config/core.php';
 include_once '../config/database.php';
-include_once '../objects/Incidente.php';
+include_once '../objects/ConsultaVideoPorIdLT.php';
 
 // get database connection
 $database = new Database();
