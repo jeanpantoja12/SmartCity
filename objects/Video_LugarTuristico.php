@@ -44,7 +44,7 @@ class Video_LT{
    $stmt = $this->conn->prepare( $query );
 
     // bind
-    $stmt->bindParam(1, $this->ID_Vehiculo);
+    $stmt->bindParam(1, $this->ID_Lugar_Turistico);
   
     // execute query
     $stmt->execute();
