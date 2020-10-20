@@ -43,11 +43,11 @@ if($num>0){
   
     // create array
     $videoLT_item = array(
-        "ID_Video_LT" =>  $videoLT->ID_Video_LT,
-        "ID_Lugar_Turistico" => $videoLT->ID_Lugar_Turistico,
-        "Nombre_Lugar_Turistico" => $videoLT->Nombre_Lugar_Turistico,
-        "VL_Descripcion" => $videoLT->VL_Descripcion,
-        "VL_URL" => $videoLT->VL_URL
+        "ID_Video_LT" =>  $ID_Video_LT,
+        "ID_Lugar_Turistico" => $ID_Lugar_Turistico,
+        "Nombre_Lugar_Turistico" => $Nombre_Lugar_Turistico,
+        "VL_Descripcion" => $VL_Descripcion,
+        "VL_URL" => $VL_URL
     );
   
   
