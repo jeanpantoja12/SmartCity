@@ -22,7 +22,7 @@ $ubicacion->ID_Ubicacion = isset($_GET['ID_Ubicacion']) ? $_GET['ID_Ubicacion'] 
 // read the details of product to be edited
 $ubicacion->Consulta();
   
-if($ubicacion->ID_Parque!=null){
+if($ubicacion->ID_Ubicacion!=null){
     // create array
     $ubicacion_arr = array(
         "ID_Ubicacion" =>  $ubicacion->ID_Ubicacion,
