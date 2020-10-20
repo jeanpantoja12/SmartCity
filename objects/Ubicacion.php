@@ -96,6 +96,47 @@ function Consulta(){
     }
     return false;
 }
+   function create(){
+  
+    // query to insert record
+    $query = "INSERT INTO
+                " . $this->table_name . "
+            SET 
+            UB_URL=:UB_URL, 
+            UB_Via=:UB_Via, 
+            UB_Estado=:UB_Estado, 
+            UB_Nombre=:UB_Nombre, 
+            UB_Longitud=:UB_Longitud, 
+            UB_Latitud=:UB_Latitud, 
+            UB_ViasAlternas=:UB_ViasAlternas";
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+    // sanitize
+    $this->UB_URL=htmlspecialchars(strip_tags($this->UB_URL));
+    $this->UB_Via=htmlspecialchars(strip_tags($this->UB_Via));
+    $this->UB_Estado=htmlspecialchars(strip_tags($this->UB_Estado));
+    $this->UB_Nombre=htmlspecialchars(strip_tags($this->UB_Nombre));
+    $this->UB_Longitud=htmlspecialchars(strip_tags($this->UB_Longitud));
+    $this->UB_Latitud=htmlspecialchars(strip_tags($this->UB_Latitud));
+    $this->UB_ViasAlternas=htmlspecialchars(strip_tags($this->UB_ViasAlternas));
+    //bind values
+    $stmt->bindParam(":UB_URL", $this->UB_URL);
+    $stmt->bindParam(":UB_Via", $this->UB_Via);
+    $stmt->bindParam(":UB_Estado", $this->UB_Estado);
+    $stmt->bindParam(":UB_Nombre", $this->UB_Nombre);
+    $stmt->bindParam(":UB_Longitud", $this->UB_Longitud);
+    $stmt->bindParam(":UB_Latitud", $this->UB_Latitud);
+    $stmt->bindParam(":UB_ViasAlternas", $this->UB_ViasAlternas);
+    // execute query
+    if($stmt->execute()){
+        return true;
+    }
+  
+    return false;
+      
+}  
+  
   
   function update(){
     // query to insert record
