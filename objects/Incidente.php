@@ -27,7 +27,7 @@ class Incidente{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET ID_Vehiculo=:ID_Vehiculo, ID_Usuario=:ID_Usuario, ind_Descripcion=:ind_Descripcion, ind_Fotografia=:ind_Fotografia, ind_Fecha_Incidente=:ind_Fecha_Incidente";
+            SET ID_Vehiculo=:ID_Vehiculo, ID_Usuario=:ID_Usuario, ind_Descripcion=:ind_Descripcion, ind_Fecha_Incidente=:ind_Fecha_Incidente, ID_Tipo_Ind=:ID_Tipo_Ind";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
