@@ -37,9 +37,7 @@ class Video_LT{
     				Tbl_Lugar_Turistico l 
     					ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
     		WHERE 
-    			v.ID_Lugar_Turistico = ? 
-    		LIMIT 
-    			0,1";
+    			v.ID_Lugar_Turistico = ? ";
     
    $stmt = $this->conn->prepare( $query );
 
