@@ -11,7 +11,7 @@ class Video_LT{
     public $ID_Lugar_Turistico;
     public $VL_Descripcion;
     public $VL_URL;
-    public $Nombre_lugar;
+    public $Nombre_Lugar_Turistico;
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -30,12 +30,12 @@ class Video_LT{
    function ConsultaIdLT(){
         // query to read single record
      $query = "SELECT 
-    			v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre as Nombre_Lugar_Turistico, v.VL_Descripcion, v.VL_URL 
+    			      v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre as Nombre_Lugar_Turistico, v.VL_Descripcion, v.VL_URL 
     		FROM
     			" . $this->table_name . " v 
     			LEFT JOIN 
     				Tbl_Lugar_Turistico l 
-    					ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico 
+    					ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
     		WHERE 
     			v.ID_Lugar_Turistico = ? 
     		LIMIT 
