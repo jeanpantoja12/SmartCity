@@ -45,7 +45,7 @@ if($num>0){
     $videoLT_item = array(
         "ID_Video_LT" =>  $videoLT->ID_Video_LT,
         "ID_Lugar_Turistico" => $videoLT->ID_Lugar_Turistico,
-        "LT_Nombre" => $videoLT->LT_Nombre,
+        "Nombre_Lugar_Turistico" => $videoLT->Nombre_Lugar_Turistico,
         "VL_Descripcion" => $videoLT->VL_Descripcion,
         "VL_URL" => $videoLT->VL_URL
     );
