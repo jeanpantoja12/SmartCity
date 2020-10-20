@@ -10,7 +10,7 @@ class Video_LT{
     public $ID_Video_LT;
     public $ID_Lugar_Turistico;
     public $VL_Descripcion;
-    public $L_URL;
+    public $VL_URL;
 
     // constructor with $db as database connection
     public function __construct($db){
