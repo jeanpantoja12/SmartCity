@@ -25,12 +25,15 @@ $incidente->Consulta();
 if($incidente->ID_Incidente!=null){
     // create array
     $incidente_arr = array(
+        "ID_Incidente" => $incidente->ID_Incidente,
         "ID_Vehiculo" =>  $incidente->ID_Vehiculo,
+        "Placa_Vehiculo" => $incidente->Placa_Vehiculo,
         "ID_Usuario" => $incidente->ID_Usuario,
+        "Usuario_Nombres" => $incidente->Usuario_Nombres,
         "ind_Descripcion" => $incidente->ind_Descripcion,
-        "ind_Fotografia" => $incidente->ind_Fotografia,
         "ind_Fecha_Incidente" => $incidente->ind_Fecha_Incidente,
-        "ID_Incidente" => $incidente->ID_Incidente
+        "ID_Tipo_Ind" => $incidente->ID_Tipo_Ind,
+        "Tipo_Incidente" => $incidente->Tipo_Incidente
     );
   
     // set response code - 200 OK
