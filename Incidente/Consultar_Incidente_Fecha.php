@@ -39,10 +39,13 @@ if($num>0){
         $incidente_item=array(
             "ID_Incidente" => $ID_Incidente,
             "ID_Vehiculo" => $ID_Vehiculo,
+            "Placa_Vehiculo" => $Placa_Vehiculo,
             "ID_Usuario" => $ID_Usuario,
+            "Usuario_Nombres" =>$Usuario_Nombres,
             "ind_Descripcion" => $ind_Descripcion,
             "ind_Fecha_Incidente" => $ind_Fecha_Incidente,
-            "ID_Tipo_Ind" => $ID_Tipo_Ind
+            "ID_Tipo_Ind" => $ID_Tipo_Ind,
+            "Tipo_Incidente" => $Tipo_Incidente
         );
   
         array_push($incidente_arr["records"], $incidente_item);
