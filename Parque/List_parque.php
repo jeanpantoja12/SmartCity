@@ -47,7 +47,8 @@ if($num>0){
             "ID_Distrito" => $ID_Distrito,
             "Distrito" => $Distrito,
             "PQ_Direccion" => $PQ_Direccion,
-            "PQ_Direccion" => $PQ_Direccion
+            "PQ_Latitud" => $PQ_Latitud,
+            "PQ_Longitud" => $PQ_Longitud
         );
   
         array_push($parque_arr["records"], $parque_item);
@@ -71,3 +72,4 @@ else{
     );
 }
 ?>
+
