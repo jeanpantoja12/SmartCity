@@ -22,7 +22,6 @@ $data = json_decode(file_get_contents("php://input"));
   
 // make sure data is not empty
 if( 
-    !empty($data->ID_Ubicacion) &&
     !empty($data->UB_URL) &&
     !empty($data->UB_Via) &&
     !empty($data->UB_Estado) &&
@@ -33,7 +32,6 @@ if(
 ){
   
     // set product property values
-    $ubicacion->ID_Ubicacion = $data->ID_Ubicacion;
     $ubicacion->UB_URL = $data->UB_URL;
     $ubicacion->UB_Via = $data->UB_Via;
     $ubicacion->UB_Estado = $data->UB_Estado;
