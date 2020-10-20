@@ -17,12 +17,12 @@ $db = $database->getConnection();
 // prepare product object
 $videoLT= new Video_LT($db);
 // set ID property of record to read
-$videoLT->videoLT = isset($_GET['ID_Lugar_Turistico']) ? $_GET['ID_Lugar_Turistico'] : die();
+$videoLT->ID_Lugar_Turistico = isset($_GET['ID_Lugar_Turistico']) ? $_GET['ID_Lugar_Turistico'] : die();
   
 // read the details of product to be edited
 $videoLT->ConsultaIdLT();
   
-if($videoLT->videoLT!=null){
+if($videoLT->ID_Lugar_Turistico!=null){
     // create array
     $videoLT_arr = array(
         "ID_Video_LT" =>  $videoLT->ID_Video_LT,
