@@ -69,7 +69,7 @@ class Usuario{
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
-            SET US_Nombres=:US_Nombres, US_Apellidos=:US_Apellidos, US_Email=:US_Email, US_Contrasena=:US_Contrasena, US_Tipo=:US_Tipo";
+            SET US_Nombres=:US_Nombres, US_Apellidos=:US_Apellidos, US_Email=:US_Email, US_Contrasena=:US_Contrasena";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
