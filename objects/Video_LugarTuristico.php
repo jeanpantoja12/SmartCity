@@ -59,8 +59,10 @@ class Video_LT{
     $query = "SELECT
                 v.ID_Video_LT, v.ID_Lugar_Turistico, v.VL_Descripcion, v.VL_URL
             FROM
-                " . $this->table_name . " v ";
-  
+                " . $this->table_name . " v 
+            LEFT JOIN
+                Tbl_Lugar_Turistico l
+                    ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico";
     // prepare query statement
     $stmt = $this->conn->prepare($query);
   
