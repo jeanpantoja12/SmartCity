@@ -43,5 +43,44 @@ class Eventos{
   
     return $stmt;
 }
+
+function Consulta_id(){
+        // query to read single record
+    $query = "SELECT
+                o.ID_Eventos, o.EVE_Nombres, o.EVE_Descripcion, o.ID_Distrito, t.DIS_Nombre as Distrito, o.EVE_Detalles, o.EVE_Fotografia, o.EVE_Fecha_Hora, o.EVE_Longitud, o.EVE_Latitud
+            FROM
+                " . $this->table_name . " o
+                LEFT JOIN
+                    Tbl_Distrito t
+                        ON o.ID_Distrito = t.ID_Distrito
+            WHERE
+                o.ID_Eventos = ?
+            LIMIT
+                0,1";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->ID_Eventos);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Eventos = $row['ID_Eventos'];
+    $this->EVE_Nombres = $row['EVE_Nombres'];
+    $this->EVE_Descripcion = $row['EVE_Descripcion'];
+    $this->ID_Distrito = $row['ID_Distrito'];
+    $this->Distrito = $row['Distrito'];
+    $this->EVE_Detalles = $row['EVE_Detalles'];
+    $this->EVE_Fotografia = $row['EVE_Fotografia'];
+    $this->EVE_Fecha_Hora = $row['EVE_Fecha_Hora'];
+    $this->EVE_Longitud = $row['EVE_Longitud'];
+    $this->EVE_Latitud = $row['EVE_Latitud'];
+    }  
+  
 }
 ?>
