@@ -32,7 +32,7 @@ class Video_LT{
                 v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre, v.VL_Descripcion, v.VL_URL
             FROM
                 " . $this->table_name . " v
-                LEFT JOIN
+                INNER JOIN
                     Tbl_Lugar_Turistico l
                         ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
             WHERE
