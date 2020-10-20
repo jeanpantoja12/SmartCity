@@ -11,7 +11,7 @@ class Video_LT{
     public $ID_Lugar_Turistico;
     public $VL_Descripcion;
     public $VL_URL;
-    public $Nombre_Lugar_Turistico;
+    public $Nombre_lugar;
 
     // constructor with $db as database connection
     public function __construct($db){
@@ -59,13 +59,12 @@ class Video_LT{
   
     // select all query
     $query = "SELECT
-                v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre. as Nombre_Lugar_Turistico, v.VL_Descripcion, v.VL_URL
+                v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre. as Nombre_lugar, v.VL_Descripcion, v.VL_URL
             FROM
                 " . $this->table_name . " v 
-                INNER JOIN
-                    Tbl_Lugar_Turistico l
-                        ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
-                        ";
+                LEFT JOIN 
+    				      Tbl_Lugar_Turistico l 
+    					      ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico ";
   
     // prepare query statement
     $stmt = $this->conn->prepare($query);
