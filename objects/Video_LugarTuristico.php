@@ -16,6 +16,48 @@ class Video_LT{
     public function __construct($db){
         $this->conn = $db;
     }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  function ConsultaIdLT(){
+        // query to read single record
+    $query = "SELECT
+                v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre, v.VL_Descripcion, v.VL_URL
+            FROM
+                " . $this->table_name . " v
+                LEFT JOIN
+                    Tbl_Lugar_Turistico l
+                        ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
+            WHERE
+                v.ID_Lugar_Turistico = ?
+            LIMIT
+                0,1";
+                // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+  
+    // bind id of product to be updated
+    $stmt->bindParam(1, $this->ID_Lugar_Turistico);
+  
+    // execute query
+    $stmt->execute();
+  
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    // set values to object properties
+    $this->ID_Video_LT = $row['ID_Video_LT'];
+    $this->ID_Lugar_Turistico = $row['ID_Lugar_Turistico'];
+    $this->LT_Nombre = $row['LT_Nombre'];
+    $this->VL_Descripcion = $row['VL_Descripcion'];
+    $this->VL_URL = $row['VL_URL'];
+    }
 
   
 
