@@ -22,7 +22,7 @@ $videoLT= new Video_LT($db);
 
 $videoLT->ID_Lugar_Turistico = isset($_GET['ID_Lugar_Turistico']) ? $_GET['ID_Lugar_Turistico'] : die();
   
-$stmt = $incidente->Consultafecha();
+$stmt = $videoLT->ConsultaIdLT();
 $num = $stmt->rowCount();
 
 
