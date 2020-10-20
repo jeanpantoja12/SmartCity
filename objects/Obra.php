@@ -142,6 +142,32 @@ function Consulta_id(){
     $this->OBR_Monto = $row['OBR_Monto'];
     $this->OBR_Coordenada_X = $row['OBR_Coordenada_X'];
     $this->OBR_Coordenada_Y = $row['OBR_Coordenada_Y'];
-    }  
+    }
+  function read(){
+  
+    // select all query
+    $query = "SELECT
+                o.ID_Obra,o.OBR_Nombre, o.OBR_Descripcion, o.OBR_Fecha_Inicio , o.OBR_Fecha_Fin, p.PER_Nombres as Encargado_Nombre, p.PER_Apellidos as Encargado_Apellidos, e.EQ_Cargo as Encargado_Cargo, f.FO_FOTO as Obra_Fotografia, o.OBR_Monto, o.OBR_Dias_Calendarios, o.OBR_Coordenada_X, o.OBR_Coordenada_Y
+            FROM
+                " . $this->table_name . " o
+                LEFT JOIN
+                    Tbl_Equipo e
+                        ON o.ID_Obra = e.ID_Obra
+                LEFT JOIN
+                    Tbl_Persona p
+                        ON e.ID_Persona = p.ID_Persona
+                LEFT JOIN
+                    Tbl_Fotografia_Obra f
+                        ON o.ID_Obra = f.ID_Obra";
+
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+  
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
 }
 ?>
