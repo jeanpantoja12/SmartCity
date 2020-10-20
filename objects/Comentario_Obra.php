@@ -204,5 +204,29 @@ function Consulta_Nombre(){
   
     return $stmt;
 }
+  function Consulta_Obra(){
+  
+    // select all query
+    $query = "SELECT
+                c.ID_Obra, o.OBR_Nombre as Obra, c.ID_Comentario, c.COM_Obra, c.COM_Calificacion, c.ID_Usuario,CONCAT(u.US_Nombres,' ',u.US_Apellidos) as Nombre_Usuario
+            FROM
+                " . $this->table_name . " c
+                LEFT JOIN
+                    Tbl_Obra o
+                        ON c.ID_Obra = o.ID_Obra
+                LEFT JOIN
+                    Tbl_Usuario u
+                        ON c.ID_Usuario = u.ID_Usuario
+                WHERE
+                c.ID_Obra = ?";
+  
+    // prepare query statement
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(1, $this->ID_Obra);
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
 }
 ?>
