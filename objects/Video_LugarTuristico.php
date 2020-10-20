@@ -27,7 +27,7 @@ class Video_LT{
   
   
   
- function ConsultaIdLT(){
+   function ConsultaIdLT(){
         // query to read single record
      $query = "SELECT 
     			v.ID_Video_LT, v.ID_Lugar_Turistico, l.LT_Nombre as Nombre_Lugar_Turistico, v.VL_Descripcion, v.VL_URL 
@@ -37,7 +37,9 @@ class Video_LT{
     				Tbl_Lugar_Turistico l 
     					ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico 
     		WHERE 
-    			v.ID_Lugar_Turistico = ?;
+    			v.ID_Lugar_Turistico = ? 
+    		LIMIT 
+    			0,1";
     
    $stmt = $this->conn->prepare( $query );
 
@@ -48,7 +50,7 @@ class Video_LT{
     $stmt->execute();
   
     return $stmt;
-    }
+   }
   
   
   
