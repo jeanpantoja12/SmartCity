@@ -30,7 +30,9 @@ if($parque->ID_Parque!=null){
         "PQ_Descripcion" => $parque->PQ_Descripcion,
         "ID_Distrito" => $parque->ID_Distrito,
         "Distrito" => $parque->Distrito,
-        "PQ_Direccion" => $parque->PQ_Direccion
+        "PQ_Direccion" => $parque->PQ_Direccion,
+        "PQ_Latitud" => $parque->PQ_Latitud,
+        "PQ_Longitud" => $parque->PQ_Longitud
     );
   
     // set response code - 200 OK
@@ -50,3 +52,4 @@ else{
 
 
 ?>
+
