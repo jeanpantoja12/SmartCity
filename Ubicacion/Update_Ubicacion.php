@@ -21,7 +21,8 @@ $ubic = new Ubicacion($db);
 $data = json_decode(file_get_contents("php://input"));
 
 if( 
-	!empty($data->ID_Ubicacion)
+	!empty($data->ID_Ubicacion) &&
+	!empty($data->UB_URL)
 ){
 	// set ID property of product to be edited
 	$ubic->ID_Ubicacion = $data->ID_Ubicacion;
