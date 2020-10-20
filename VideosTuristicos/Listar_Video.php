@@ -15,7 +15,7 @@ include_once '../objects/Video_LugarTuristico.php';
 $database = new Database();
 $db = $database->getConnection();
   
-$video = new videoLugar($db);
+$video = new Video_LT($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
@@ -55,7 +55,7 @@ if($num>0){
     http_response_code(200);
   
     // show sites data in json format
-    echo json_encode($lugart_arr);
+    echo json_encode($video_arr);
 }
   
 else{
