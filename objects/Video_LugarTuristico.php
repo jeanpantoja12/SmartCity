@@ -54,12 +54,10 @@ class Video_LT{
   
     // select all query
     $query = "SELECT
-                v.ID_Video_LT, v.VL_Descripcion, v.VL_URL, l.LT_Nombre. as Nombre_lugar, v.ID_Lugar_Turistico
+                v.ID_Video_LT, v.VL_Descripcion, v.VL_URL, v.ID_Lugar_Turistico
             FROM
                 " . $this->table_name . " v
-                LEFT JOIN
-                    Tbl_Lugar_Turistico l
-                        ON v.ID_Lugar_Turistico = l.ID_Lugar_Turistico
+                
             ";
   
     // prepare query statement
