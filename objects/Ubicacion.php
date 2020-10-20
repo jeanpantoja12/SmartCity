@@ -39,7 +39,7 @@ class Ubicacion{
     return $stmt;
 }
 
-function Consulta_id(){
+function Consulta(){
         // query to read single record
     $query = "SELECT
                 o.ID_Ubicacion, o.UB_URL, o.UB_Via,  o.UB_Estado, o.UB_Nombre, o.UB_Longitud, o.UB_Latitud, o.UB_ViasAlternas
