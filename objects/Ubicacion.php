@@ -72,5 +72,33 @@ function Consulta_id(){
     $this->UB_ViasAlternas = $row['UB_ViasAlternas'];
     }  
   
+  
+  
+  
+  
+  function delete(){
+  
+    // delete query
+    $query = "DELETE FROM " . $this->table_name . " WHERE ID_Ubicacion = ?";
+  
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+    // sanitize
+    $this->ID_Ubicacion=htmlspecialchars(strip_tags($this->ID_Ubicacion));
+  
+    // bind id of record to delete
+    $stmt->bindParam(1, $this->ID_Ubicacion);
+  
+    // execute query
+    if($stmt->execute()){
+        return true;
+    }
+    return false;
+}
+  
+  
+  
+  
 }
 ?>
