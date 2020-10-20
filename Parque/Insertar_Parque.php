@@ -26,7 +26,9 @@ if(
     !empty($data->PQ_Nombre) &&
     !empty($data->PQ_Descripcion) &&
     !empty($data->ID_Distrito) &&
-    !empty($data->PQ_Direccion) 
+    !empty($data->PQ_Direccion) &&
+    !empty($data->PQ_Latitud) &&
+    !empty($data->PQ_Longitud) 
  
 ){
   
@@ -36,6 +38,8 @@ if(
     $parques->PQ_Descripcion = $data->PQ_Descripcion;
     $parques->ID_Distrito = $data->ID_Distrito;
     $parques->PQ_Direccion = $data->PQ_Direccion;
+    $parques->PQ_Latitud = $data->PQ_Latitud;
+    $parques->PQ_Longitud = $data->PQ_Longitud;
 
 
 
