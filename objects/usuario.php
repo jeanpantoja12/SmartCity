@@ -60,6 +60,43 @@ class Usuario{
     return false;
       
 }
+  
+  
+  
+  
+  function createIncidente(){
+  
+    // query to insert record
+    $query = "INSERT INTO
+                " . $this->table_name . "
+            SET US_Nombres=:US_Nombres, US_Apellidos=:US_Apellidos, US_Email=:US_Email, US_Contrasena=:US_Contrasena, US_Tipo=:US_Tipo";
+
+    // prepare query
+    $stmt = $this->conn->prepare($query);
+  
+    // sanitize
+    $this->US_Nombres=htmlspecialchars(strip_tags($this->US_Nombres));
+    $this->US_Apellidos=htmlspecialchars(strip_tags($this->US_Apellidos));
+    $this->US_Email=htmlspecialchars(strip_tags($this->US_Email));
+    $this->US_Contrasena=htmlspecialchars(strip_tags($this->US_Contrasena));
+    // bind values
+    $stmt->bindParam(":US_Nombres", $this->US_Nombres);
+    $stmt->bindParam(":US_Apellidos", $this->US_Apellidos);
+    $stmt->bindParam(":US_Email", $this->US_Email);
+    $stmt->bindParam(":US_Contrasena", $this->US_Contrasena);
+    // execute query
+    if($stmt->execute()){
+        return true;
+        
+    }
+    
+    return false;
+      
+}
+  
+  
+  
+  
 function login(){
         // select all query with user inputed username and password
         $query = "SELECT
