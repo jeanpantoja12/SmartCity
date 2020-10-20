@@ -8,12 +8,12 @@ class Incidente{
     //private $table_name = "Tbl_Tipo_Vehiculo";
   
     // object properties
+    public $ID_Incidente; 
     public $ID_Vehiculo;
     public $ID_Usuario;
     public $ind_Descripcion;
     public $ind_Fotografia;
     public $ind_Fecha_Incidente;
-    public $ID_Incidente;   
     public $ID_Tipo_Ind;   
   
     // constructor with $db as database connection
@@ -101,7 +101,7 @@ class Incidente{
                 i.ind_Fecha_Incidente DESC";
             
                 // prepare query statement
-      $stmt = $this->conn->prepare($query);
+      $stmt = $this->conn->prepare( $query );
   
     // sanitize
     $keywords=htmlspecialchars(strip_tags($keywords));
