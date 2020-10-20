@@ -56,9 +56,7 @@ class Video_LT{
     $query = "SELECT
                 v.ID_Video_LT, v.VL_Descripcion, v.VL_URL, v.ID_Lugar_Turistico
             FROM
-                " . $this->table_name . " v
-                
-            ";
+                " . $this->table_name . " v ";
   
     // prepare query statement
     $stmt = $this->conn->prepare($query);
