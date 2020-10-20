@@ -26,7 +26,7 @@ if(
     !empty($data->ID_Vehiculo) &&
     !empty($data->ID_Usuario) &&
     !empty($data->ind_Descripcion) &&
-    !empty($data->ind_Fotografia) &&
+    !empty($data->ID_Tipo_Ind) &&
     !empty($data->ind_Fecha_Incidente) 
  
 ){
@@ -36,7 +36,7 @@ if(
     $incidente->ID_Vehiculo = $data->ID_Vehiculo;
     $incidente->ID_Usuario = $data->ID_Usuario;
     $incidente->ind_Descripcion = $data->ind_Descripcion;
-    $incidente->ind_Fotografia = $data->ind_Fotografia;
+    $incidente->ID_Tipo_Ind = $data->ID_Tipo_Ind;
     $incidente->ind_Fecha_Incidente = $data->ind_Fecha_Incidente;
 
 
