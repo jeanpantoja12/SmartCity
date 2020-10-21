@@ -34,17 +34,17 @@ if($num>0){
         extract($row);
 
         $obra_item=array(
-            "ID_Obra" =>  $obra->ID_Obra,
-            "OBR_Nombre" => $obra->OBR_Nombre,
-            "OBR_Descripcion" => $obra->OBR_Descripcion,
-            "ID_Tipo" => $obra->ID_Tipo,
-            "Tipo_Obra" => $obra->Tipo_Obra,
-            "OBR_Fecha_Inicio" => $obra->OBR_Fecha_Inicio,
-            "OBR_Fecha_Fin" => $obra->OBR_Fecha_Fin,
-            "OBR_Monto" => $obra->OBR_Monto,
-            "OBR_Coordenada_X" => $obra->OBR_Coordenada_X,
-            "OBR_Coordenada_Y" => $obra->OBR_Coordenada_Y,
-            "OBR_Dias_Calendarios" => $obra->OBR_Dias_Calendarios
+            "ID_Obra" =>  $ID_Obra,
+            "OBR_Nombre" => $OBR_Nombre,
+            "OBR_Descripcion" => $OBR_Descripcion,
+            "ID_Tipo" => $ID_Tipo,
+            "Tipo_Obra" => $Tipo_Obra,
+            "OBR_Fecha_Inicio" => $OBR_Fecha_Inicio,
+            "OBR_Fecha_Fin" => $OBR_Fecha_Fin,
+            "OBR_Monto" => $OBR_Monto,
+            "OBR_Coordenada_X" => $OBR_Coordenada_X,
+            "OBR_Coordenada_Y" => $OBR_Coordenada_Y,
+            "OBR_Dias_Calendarios" => $OBR_Dias_Calendarios
         );
         array_push($obra_arr["records"], $obra_item);
   }
