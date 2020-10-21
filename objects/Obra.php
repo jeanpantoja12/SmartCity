@@ -68,7 +68,7 @@ class Obra{
     return false;
       
 }
-function Consulta_nombre(){
+function Consulta_nombre($keywords){
         // query to read single record
     $query = "SELECT
                 o.ID_Obra, o.OBR_Nombre, o.OBR_Descripcion, o.ID_Tipo, t.TPO_Nombre as Tipo_Obra, o.OBR_Fecha_Inicio, o.OBR_Fecha_Fin, o.OBR_Monto, o.OBR_Coordenada_X, o.OBR_Coordenada_Y, o.OBR_Dias_Calendarios
@@ -78,32 +78,22 @@ function Consulta_nombre(){
                     Tbl_Tipo_Obra t
                         ON o.ID_Tipo = t.ID_Tipo
             WHERE
-                o.OBR_Nombre = ?
-            LIMIT
-                0,1";
+                o.OBR_Nombre LIKE ?
+                ";
                 // prepare query statement
-    $stmt = $this->conn->prepare( $query );
+    $stmt = $this->conn->prepare($query);
   
-    // bind id of product to be updated
-    $stmt->bindParam(1, $this->OBR_Nombre);
+    // sanitize
+    $keywords=htmlspecialchars(strip_tags($keywords));
+    $keywords = "%{$keywords}%";
   
+    // bind
+    $stmt->bindParam(1, $keywords);
+    
     // execute query
     $stmt->execute();
   
-    // get retrieved row
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-    // set values to object properties
-    $this->ID_Obra = $row['ID_Obra'];
-    $this->OBR_Nombre = $row['OBR_Nombre'];
-    $this->OBR_Descripcion = $row['OBR_Descripcion'];
-    $this->ID_Tipo = $row['ID_Tipo'];
-    $this->Tipo_Obra = $row['Tipo_Obra'];
-    $this->OBR_Fecha_Inicio = $row['OBR_Fecha_Inicio'];
-    $this->OBR_Fecha_Fin = $row['OBR_Fecha_Fin'];
-    $this->OBR_Monto = $row['OBR_Monto'];
-    $this->OBR_Coordenada_X = $row['OBR_Coordenada_X'];
-    $this->OBR_Coordenada_Y = $row['OBR_Coordenada_Y'];
+    return $stmt;
     }
 
 function Consulta_id(){
