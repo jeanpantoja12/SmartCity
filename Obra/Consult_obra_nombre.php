@@ -7,6 +7,7 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 
 // include database and object files
+include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../objects/Obra.php';
 
@@ -17,28 +18,38 @@ $db = $database->getConnection();
 // prepare product object
 $obra = new Obra($db);
 // set ID property of record to read
-$obra->OBR_Nombre = isset($_GET['OBR_Nombre']) ? $_GET['OBR_Nombre'] : die();
+$keywords=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
   
 // read the details of product to be edited
-$obra->Consulta_nombre();  
-  
+$stmt = $obra->Consulta_nombre(keywords);
+$num = $stmt->rowCount();  
+if($num>0){ 
 if($obra->OBR_Nombre!=null){
+
+    $obra_arr = array();
+    $obra_arr["records"] = array();
     // create array
-    $obra_arr = array(
-        "ID_Obra" =>  $obra->ID_Obra,
-        "OBR_Nombre" => $obra->OBR_Nombre,
-        "OBR_Descripcion" => $obra->OBR_Descripcion,
-        "ID_Tipo" => $obra->ID_Tipo,
-        "Tipo_Obra" => $obra->Tipo_Obra,
-        "OBR_Fecha_Inicio" => $obra->OBR_Fecha_Inicio,
-        "OBR_Fecha_Fin" => $obra->OBR_Fecha_Fin,
-        "OBR_Monto" => $obra->OBR_Monto,
-        "OBR_Coordenada_X" => $obra->OBR_Coordenada_X,
-        "OBR_Coordenada_Y" => $obra->OBR_Coordenada_Y,
-        "OBR_Dias_Calendarios" => $obra->OBR_Dias_Calendarios
-  
-    );
-  
+   while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        // extract row
+        // this will make $row['name'] to
+        // just $name only
+        extract($row);
+
+        $obra_item=array(
+            "ID_Obra" =>  $obra->ID_Obra,
+            "OBR_Nombre" => $obra->OBR_Nombre,
+            "OBR_Descripcion" => $obra->OBR_Descripcion,
+            "ID_Tipo" => $obra->ID_Tipo,
+            "Tipo_Obra" => $obra->Tipo_Obra,
+            "OBR_Fecha_Inicio" => $obra->OBR_Fecha_Inicio,
+            "OBR_Fecha_Fin" => $obra->OBR_Fecha_Fin,
+            "OBR_Monto" => $obra->OBR_Monto,
+            "OBR_Coordenada_X" => $obra->OBR_Coordenada_X,
+            "OBR_Coordenada_Y" => $obra->OBR_Coordenada_Y,
+            "OBR_Dias_Calendarios" => $obra->OBR_Dias_Calendarios
+        );
+        array_push($obra_arr["records"], $obra_item);
+  }
     // set response code - 200 OK
     http_response_code(200);
   
