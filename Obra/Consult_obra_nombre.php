@@ -21,7 +21,7 @@ $obra = new Obra($db);
 $keywords=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
   
 // read the details of product to be edited
-$stmt = $obra->Consulta_nombre(keywords);
+$stmt = $obra->Consulta_nombre($keywords);
 $num = $stmt->rowCount();  
 if($num>0){ 
     $obra_arr = array();
