@@ -81,6 +81,27 @@ function Consulta_id(){
     $this->EVE_Longitud = $row['EVE_Longitud'];
     $this->EVE_Latitud = $row['EVE_Latitud'];
     }  
+  function Consulta_distrito(){
+        // query to read single record
+     $query = "SELECT 
+                    v.ID_Eventos, v.ID_Distrito, d.DIS_Nombre as Distrito, v.EVE_Descripcion, v.EVE_Nombres, v.EVE_Descripcion, v.EVE_Detalles, v.EVE_Fotografia, v.EVE_Fecha_Hora, v.EVE_Longitud, v.EVE_Latitud
+            FROM
+                " . $this->table_name . " v
+            LEFT JOIN
+                    Tbl_Distrito d
+                        ON v.ID_Distrito = d.ID_Distrito
+            WHERE 
+                v.ID_Distrito = ? ";
+    
+   $stmt = $this->conn->prepare( $query );
+
+    // bind
+    $stmt->bindParam(1, $this->ID_Distrito);
   
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+   } 
 }
 ?>
