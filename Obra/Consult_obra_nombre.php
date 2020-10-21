@@ -24,8 +24,6 @@ $keywords=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
 $stmt = $obra->Consulta_nombre(keywords);
 $num = $stmt->rowCount();  
 if($num>0){ 
-if($obra->OBR_Nombre!=null){
-
     $obra_arr = array();
     $obra_arr["records"] = array();
     // create array
