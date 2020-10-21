@@ -10,6 +10,7 @@ class Obra{
     public $OBR_Nombre;
     public $OBR_Descripcion;
     public $ID_Tipo;
+    public $Tipo_Obra;
     public $OBR_Fecha_Inicio;
     public $OBR_Fecha_Fin;
     public $OBR_Monto;
