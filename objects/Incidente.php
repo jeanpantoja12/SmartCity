@@ -35,7 +35,7 @@ class Incidente{
     // sanitize
     $this->ID_Vehiculo=htmlspecialchars(strip_tags($this->ID_Vehiculo));
     $this->ID_Usuario=htmlspecialchars(strip_tags($this->ID_Usuario));
-    $this->ind_Descripcion=htmlspecialchars(strip_tags($this->ind_Fotografia));
+    $this->ind_Descripcion=htmlspecialchars(strip_tags($this->ind_Descripcion));
     // $this->ind_Fotografia=htmlspecialchars(strip_tags($this->ind_Fotografia));
     $this->ind_Fecha_Incidente=htmlspecialchars(strip_tags($this->ind_Fecha_Incidente));
     $this->ID_Tipo_Ind=htmlspecialchars(strip_tags($this->ID_Tipo_Ind));
